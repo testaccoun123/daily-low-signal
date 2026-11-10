@@ -17,6 +17,9 @@ ls /usr/bin/google-chrome /usr/bin/chromium /usr/bin/chromium-browser 2>/dev/nul
 Secrets come from environment variables: `IG_ACCESS_TOKEN`, `IG_USER_ID`, `IG_API_BASE`,
 `GITHUB_TOKEN`, `GITHUB_REPO`. Never print them, never write them to files, never commit them.
 Post folder: `posts/YYYY-MM-DD` using today's date in **Europe/Stockholm**.
+If that folder already exists (e.g. an extra post on the same day), use the next free suffix:
+`posts/YYYY-MM-DD-2`, `posts/YYYY-MM-DD-3`, ... Never overwrite or delete an existing post folder.
+`posts/2026-11-10` is the reference example of a finished post.
 
 ## 1. Pick 4 stories (last ~24 h)
 Use web search. Prefer stories that make a young person stop scrolling:
@@ -26,6 +29,13 @@ affects them (prices, jobs, rent), big culture moments, genuinely huge world eve
 Avoid: partisan politics (Instagram limits its reach), war/graphic violence, crime involving
 private individuals, unproven allegations about real people, rumors, deaths unless confirmed
 by major outlets, anything older than ~3 days.
+
+Be persistent — finding 4 good stories normally takes 10–20 searches. Search each category
+separately (e.g. "AI news today", "PlayStation Xbox Nintendo news", "Apple Google Meta announcement",
+"NASA SpaceX news", "TikTok Instagram YouTube update", "Reuters business news today"), use
+`mode: "extended"` for fresh results, and use WebFetch to open articles and confirm their date and
+details. Stories from the last 48 hours are fine if still fresh. Only give up if after ~20 searches
+you truly cannot find 4 verifiable stories — then stop and explain, never invent anything.
 
 **Every fact must be confirmed by at least 2 independent reputable sources** (primary source
 preferred: company/agency announcement, then Reuters/AP/BBC/CNBC/The Verge etc.). If you can't
