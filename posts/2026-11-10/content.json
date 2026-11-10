@@ -1,0 +1,52 @@
+{
+  "date": "NOV 10, 2026",
+  "hook": {
+    "layout": "mosaic",
+    "title": "4 things that happened while you were <span class=\"grad\">scrolling.</span>",
+    "tiles": [
+      { "theme": "pink",   "mini": "countdown", "label": "GTA 6 is <em>9 days</em> away" },
+      { "theme": "teal",   "mini": "toggle",    "label": "Google turns <em>AI off</em> for students" },
+      { "theme": "violet", "mini": "truss",     "label": "A robot built in space. <em>Alone.</em>" },
+      { "theme": "amber",  "mini": "reentry",   "label": "Hubble is <em>falling</em>" }
+    ]
+  },
+  "stories": [
+    {
+      "theme": "pink",
+      "layout": "card",
+      "tag": "GAMING",
+      "visual": "countdown",
+      "visualValue": "9",
+      "headline": "GTA 6 is <em>9 days</em> away.",
+      "body": "Rockstar still has it locked for <mark>November 19</mark> on <mark>PS5 and Xbox Series X|S</mark>. The game has already been <mark>delayed twice</mark>, first from 2025, then from May 2026. A <mark>PC version</mark> is expected later but isn't confirmed. Right now: <mark>no new delay</mark>.",
+      "source": "Rockstar Games, Tom's Guide"
+    },
+    {
+      "theme": "teal",
+      "layout": "bottom",
+      "tag": "TECH",
+      "visual": "toggle",
+      "headline": "Google is switching off AI for <em>students</em>.",
+      "body": "<mark>Gemini will be off by default</mark> on K-12 school accounts until the school turns it on. The catch: Google says Search now runs on AI, so schools that keep AI off <mark>lose Google Search too</mark>. It follows <mark>pushback from parents' groups and senators</mark>. Exact timing <mark>isn't set yet</mark>.",
+      "source": "The Next Web, NBC"
+    },
+    {
+      "theme": "violet",
+      "layout": "top",
+      "tag": "SPACE",
+      "visual": "truss",
+      "headline": "A robot built something in space. <em>Alone.</em>",
+      "body": "Caltech's <mark>ASTRA</mark> robot, part of a <mark>DARPA</mark> program, put together a <mark>1.4-meter ring</mark> in orbit and unfolded a reflective mesh, with <mark>no astronauts</mark> involved. It's small, but it's a first. The goal: build <mark>huge antennas and telescopes</mark> in space instead of cramming them into rockets.",
+      "source": "DARPA, Caltech"
+    },
+    {
+      "theme": "amber",
+      "layout": "bleed",
+      "tag": "SCIENCE",
+      "visual": "reentry",
+      "headline": "Hubble could fall back to Earth in <em>~7 years</em>.",
+      "body": "The 36-year-old telescope has <mark>no engine</mark> and its orbit is slowly sinking. Without help it could <mark>re-enter around 2033–34</mark>. NASA is now asking companies how they'd <mark>boost it higher or service it</mark>. Ideas are due <mark>Nov 30</mark>, but <mark>nothing is funded yet</mark>.",
+      "source": "Space.com, The Next Web"
+    }
+  ]
+}
