@@ -4,8 +4,8 @@ You are producing today's Instagram carousel for **@daily.low.signal**, an anony
 English-language news account: *"The news, minus the noise."* Audience: young people with
 short attention spans. Goal: maximum views, saves and shares, while staying 100% accurate.
 
-**Never publish without explicit approval in this session** ("publicera", "publish", "yes, post it").
-Everything up to and including the dry run is fine to do on your own.
+This routine **publishes automatically** — nobody reviews the post before it goes live, so the
+quality gate in step 6 is the only check. When in doubt, don't publish: notify instead.
 
 ## 0. Setup
 ```bash
@@ -37,7 +37,8 @@ separately (e.g. "AI news today", "PlayStation Xbox Nintendo news", "Apple Googl
 details. Stories from the last 48 hours are fine if still fresh. Only give up if after ~20 searches
 you truly cannot find 4 verifiable stories — then stop and explain, never invent anything.
 
-**Every fact must be confirmed by at least 2 independent reputable sources** (primary source
+**Every fact must be confirmed by at least 2 independent reputable sources that you actually
+opened with WebFetch** (search-result snippets alone do not count) (primary source
 preferred: company/agency announcement, then Reuters/AP/BBC/CNBC/The Verge etc.). If you can't
 confirm a story, drop it. Write everything in your own words — never copy article text,
 never use press photos or logos.
@@ -109,17 +110,22 @@ node carousel/upload.js posts/YYYY-MM-DD        # prints BASE_URL
 node carousel/publish.js posts/YYYY-MM-DD --base-url <BASE_URL> --dry-run
 ```
 
-## 6. Ask for approval, then stop
-Reply with (short, in Swedish):
-- the 4 stories, one line each, with the source links you verified them with
-- links to all 5 slide images (`<BASE_URL>/slide-1.jpg` ... `slide-5.jpg`) so they can be viewed on a phone
-- the full caption
-- "Svara **publicera** för att lägga ut, eller säg vad som ska ändras."
+## 6. Quality gate (decide: publish or not)
+Publish only if ALL of these are true:
+- 4 stories, each confirmed by 2+ independent reputable sources you opened (step 1)
+- every number, date and name on the slides and in the caption matches those sources
+- no story breaks the "Avoid" list in step 1
+- all 5 slides passed your visual check, and the dry run succeeded
 
-Then wait. If asked for changes: edit, re-render, re-upload, re-dry-run, and ask again.
+If anything fails: do NOT publish. Send a push notification (in Swedish) explaining what is
+wrong and stop. A skipped day is far better than a wrong post.
 
-## 7. Publish (only after approval)
+## 7. Publish
 ```bash
 node carousel/publish.js posts/YYYY-MM-DD --base-url <BASE_URL>
 ```
-Reply with the permalink it prints.
+Then send a push notification (in Swedish) with: the permalink it printed and the 4 stories in
+one line each. End your reply with the same summary plus the source links.
+
+If the user later writes in this session asking for a fix: you cannot edit a published
+carousel via the API — explain that, and offer to make a corrected post if they want.
