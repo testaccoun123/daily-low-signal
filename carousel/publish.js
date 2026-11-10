@@ -19,7 +19,7 @@ function loadEnv() {
     const m = line.match(/^\s*([A-Z_]+)=(.*)$/);
     if (m && m[2].trim()) env[m[1]] = m[2].trim();
   }
-  for (const k of ['IG_ACCESS_TOKEN', 'IG_USER_ID', 'IG_API_BASE']) if (process.env[k]) env[k] = process.env[k];
+  for (const k of ['IG_ACCESS_TOKEN', 'IG_USER_ID', 'IG_API_BASE', 'GITHUB_TOKEN', 'GITHUB_REPO']) if (process.env[k]) env[k] = process.env[k];
   for (const k of ['IG_ACCESS_TOKEN', 'IG_USER_ID']) if (!env[k]) throw new Error(`${k} missing in .env`);
   env.IG_API_BASE = env.IG_API_BASE || 'https://graph.facebook.com/v23.0';
   return env;
@@ -35,6 +35,26 @@ function parseArgs() {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// After publishing, keep a record of the post (content.json with topics, caption, media id) in the
+// GitHub repo so statistics can later link Instagram numbers to stories and topics.
+async function archiveToRepo(env, dir, names) {
+  if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) { console.log('archive skipped: no GITHUB_TOKEN/GITHUB_REPO'); return; }
+  const headers = { Authorization: `Bearer ${env.GITHUB_TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'feed-publisher' };
+  const folder = path.basename(path.resolve(dir));
+  for (const name of names) {
+    const file = path.join(dir, name);
+    if (!fs.existsSync(file)) continue;
+    const repoPath = `posts/${folder}/${name}`;
+    const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${repoPath}`;
+    const existing = await fetch(url, { headers });
+    const sha = existing.ok ? (await existing.json()).sha : undefined;
+    const res = await fetch(url, { method: 'PUT', headers, body: JSON.stringify({
+      message: `Archive ${repoPath}`, content: fs.readFileSync(file).toString('base64'), ...(sha ? { sha } : {}),
+    }) });
+    console.log(res.ok ? `archived ${repoPath}` : `archive failed for ${repoPath}: ${res.status}`);
+  }
+}
 
 async function api(env, method, endpoint, params = {}) {
   const url = new URL(`${env.IG_API_BASE}/${endpoint}`);
@@ -99,4 +119,5 @@ async function waitReady(env, id) {
   const { permalink } = await api(env, 'GET', mediaId, { fields: 'permalink' });
   console.log('PUBLISHED', mediaId, permalink);
   fs.writeFileSync(path.join(dir, 'published.json'), JSON.stringify({ mediaId, permalink, at: new Date().toISOString() }, null, 2));
+  await archiveToRepo(env, dir, ['content.json', 'caption.txt', 'published.json']).catch((e) => console.log('archive failed:', e.message));
 })().catch((e) => { console.error('ERROR:', e.message); process.exit(1); });
