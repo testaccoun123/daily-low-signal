@@ -21,6 +21,20 @@ If that folder already exists (e.g. an extra post on the same day), use the next
 `posts/YYYY-MM-DD-2`, `posts/YYYY-MM-DD-3`, ... Never overwrite or delete an existing post folder.
 `posts/2026-11-10` is the reference example of a finished post.
 
+## 0b. Learn from past posts
+```bash
+node carousel/stats.js --posts 14 --json /tmp/stats.json
+```
+Read the report (and /tmp/stats.json if useful):
+- **Don't repeat**: the captions list every story already posted — never cover the same story again
+  unless there is a genuinely new development (then say what's new).
+- **Do more of what works**: compare posts by shares, saves, reach and the "BEST" line. Note which
+  categories (gaming, AI, space, apps...) and which hook styles (question, number, "while you were
+  scrolling", bold claim) performed best, and lean today's story mix and hook toward them — while
+  still keeping 4 different topics. Stats can lag 24–48 h; with fewer than ~5 posts or all zeros,
+  ignore performance and just avoid repeats.
+- If stats.js fails (e.g. missing insights permission), continue without it.
+
 ## 1. Pick 4 stories (last ~24 h)
 Use web search. Prefer stories that make a young person stop scrolling:
 tech & AI, gaming, internet/platform changes (apps they use), science & space, money that
@@ -125,7 +139,7 @@ wrong and stop. A skipped day is far better than a wrong post.
 node carousel/publish.js posts/YYYY-MM-DD --base-url <BASE_URL>
 ```
 Then send a push notification (in Swedish) with: the permalink it printed and the 4 stories in
-one line each. End your reply with the same summary plus the source links.
+one line each, plus one short line on how the best recent post performed (from step 0b) if stats were available. End your reply with the same summary plus the source links.
 
 If the user later writes in this session asking for a fix: you cannot edit a published
 carousel via the API — explain that, and offer to make a corrected post if they want.
