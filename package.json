@@ -1,0 +1,18 @@
+{
+  "name": "daily-low-signal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "render": "node carousel/render.js",
+    "upload": "node carousel/upload.js",
+    "publish-post": "node carousel/publish.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}
