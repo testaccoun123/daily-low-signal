@@ -65,7 +65,8 @@ const pad = (s, w) => String(s).padEnd(w);
   const posts = [];
   for (const m of media) {
     const ins = await insights(m.id, ['reach', 'views', 'saved', 'shares', 'total_interactions']);
-    const hook = (m.caption || '').split('\n')[0].slice(0, 90);
+    const first = (m.caption || '').split('\n')[0].replace(/\s*👇\s*$/u, '').trim();
+    const hook = first.length > 90 ? first.slice(0, first.lastIndexOf(' ', 88)) + '…' : first;
     const score = (ins.shares || 0) * 3 + (ins.saved || 0) * 2 + (m.comments_count || 0) * 2 + (m.like_count || 0);
     posts.push({ id: m.id, timestamp: m.timestamp, permalink: m.permalink, type: m.media_type, hook,
       caption: m.caption, likes: m.like_count, comments: m.comments_count, ...ins, score });
@@ -86,6 +87,42 @@ const pad = (s, w) => String(s).padEnd(w);
   const ranked = [...posts].sort((a, b) => b.score - a.score || (b.reach || 0) - (a.reach || 0));
   if (ranked.length > 1) {
     console.log(`\nBEST (shares×3 + saves×2 + comments×2 + likes): ${ranked[0].hook}  → ${ranked[0].permalink}`);
+  }
+
+  const DASH_DIR = opt('--dash', null);
+  if (DASH_DIR) {
+    // Flat row files for the account dashboard artifact.
+    fs.mkdirSync(DASH_DIR, { recursive: true });
+    const acct = [{
+      username: account.username, followers: account.followers_count, following: account.follows_count, posts: account.media_count,
+      reach_24h: last1.reach, reach_7d: last7.reach, views_24h: last1.views, views_7d: last7.views,
+      engaged_24h: last1.accounts_engaged, engaged_7d: last7.accounts_engaged,
+      interactions_24h: last1.total_interactions, interactions_7d: last7.total_interactions,
+      fetched_at: new Date().toISOString(),
+    }];
+    const rows = posts.map((p) => ({
+      id: p.id, published: p.timestamp, hook: p.hook, permalink: p.permalink,
+      reach: p.reach, views: p.views, likes: p.likes, comments: p.comments, saves: p.saved, shares: p.shares, score: p.score,
+    }));
+    // Topics per story, from the post records archived in the public GitHub repo.
+    const stories = [];
+    const repo = env.GITHUB_REPO || 'testaccoun123/daily-low-signal';
+    try {
+      const list = await (await fetch(`https://api.github.com/repos/${repo}/contents/posts`, { headers: { 'User-Agent': 'feed-publisher' } })).json();
+      for (const d of Array.isArray(list) ? list.filter((x) => x.type === 'dir') : []) {
+        const raw = (f) => fetch(`https://raw.githubusercontent.com/${repo}/main/posts/${d.name}/${f}`).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+        const [pub, content] = await Promise.all([raw('published.json'), raw('content.json')]);
+        if (!pub || !content || !content.stories) continue;
+        content.stories.forEach((s, i) => stories.push({
+          id: `${pub.mediaId}-${i + 1}`, post_id: pub.mediaId, published: pub.at, topic: s.topic || 'unknown',
+          story: String(s.headline || '').replace(/<[^>]+>/g, ''),
+        }));
+      }
+    } catch (e) { console.log('topics skipped:', e.message); }
+    fs.writeFileSync(path.join(DASH_DIR, 'stories.json'), JSON.stringify(stories, null, 2));
+    fs.writeFileSync(path.join(DASH_DIR, 'account.json'), JSON.stringify(acct, null, 2));
+    fs.writeFileSync(path.join(DASH_DIR, 'posts.json'), JSON.stringify(rows, null, 2));
+    console.log(`\nwrote ${DASH_DIR}/account.json and posts.json`);
   }
 
   if (JSON_OUT) {
