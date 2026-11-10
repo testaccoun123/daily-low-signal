@@ -77,6 +77,8 @@ Use `posts/2026-11-10/content.json` as the reference example. Structure:
 ```
 Rules:
 - Exactly 4 stories → 5 slides. No call-to-action slide.
+- Every story has a `"topic"` from this fixed list (used for the topic statistics):
+  `gaming`, `ai-tech`, `apps-social`, `space`, `science`, `money`, `culture`, `world`.
 - Themes: use `pink`, `teal`, `violet`, `amber` once each (same color for a story's tile and its slide).
 - Layouts: use `card`, `bottom`, `top`, `bleed` once each so slides look different.
 - Hook title: vary it daily (e.g. "4 things that happened while you were <span class=\"grad\">scrolling.</span>").
