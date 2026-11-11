@@ -1,0 +1,26 @@
+{
+  "posted": "2026-11-11",
+  "date": "NOV 11, 2026",
+  "stories": [
+    {
+      "topic": "money",
+      "headline": "Phone prices just had a record jump.",
+      "source": "Reuters"
+    },
+    {
+      "topic": "ai-tech",
+      "headline": "Meta launched its cheapest AI model yet.",
+      "source": "TestingCatalog"
+    },
+    {
+      "topic": "science",
+      "headline": "A message to Voyager 1 now takes a full day.",
+      "source": "Science News, EarthSky"
+    },
+    {
+      "topic": "space",
+      "headline": "NASA picked 8 companies for Moon deliveries.",
+      "source": "NASA, MarketScale"
+    }
+  ]
+}
