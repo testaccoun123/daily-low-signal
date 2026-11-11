@@ -1,0 +1,55 @@
+{
+  "date": "NOV 11, 2026",
+  "hook": {
+    "layout": "mosaic",
+    "title": "Your phone just got <span class=\"grad\">pricier.</span> Plus 3 more.",
+    "tiles": [
+      { "theme": "pink", "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"140\" y=\"20\" width=\"120\" height=\"130\" rx=\"22\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"8\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><rect x=\"185\" y=\"32\" width=\"30\" height=\"8\" rx=\"4\" fill=\"{{b}}\"/><path d=\"M200 120 V70 M178 92 L200 68 L222 92\" stroke=\"{{b}}\" stroke-width=\"12\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>", "label": "Phone prices hit a <em>record jump</em>" },
+      { "theme": "teal", "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"150\" y=\"35\" width=\"100\" height=\"100\" rx=\"16\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"8\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><rect x=\"178\" y=\"63\" width=\"44\" height=\"44\" rx=\"8\" fill=\"{{b}}\"/><path d=\"M170 35 V15 M200 35 V15 M230 35 V15 M170 135 V155 M200 135 V155 M230 135 V155\" stroke=\"{{a}}\" stroke-width=\"8\" stroke-linecap=\"round\"/></svg>", "label": "Meta's <em>cheap AI</em> brain" },
+      { "theme": "violet", "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"85\" r=\"22\" fill=\"{{b}}\"/><path d=\"M80 85 H300\" stroke=\"{{a}}\" stroke-width=\"6\" stroke-dasharray=\"4 16\" stroke-linecap=\"round\"/><rect x=\"310\" y=\"72\" width=\"40\" height=\"26\" rx=\"6\" fill=\"{{a}}\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><path d=\"M350 85 L378 85\" stroke=\"{{b}}\" stroke-width=\"6\" stroke-linecap=\"round\"/></svg>", "label": "A message that takes <em>24 hours</em>" },
+      { "theme": "amber", "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"200\" cy=\"85\" r=\"46\" fill=\"{{b}}\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><circle cx=\"185\" cy=\"72\" r=\"9\" fill=\"{{a}}\"/><circle cx=\"215\" cy=\"100\" r=\"12\" fill=\"{{a}}\"/><circle cx=\"70\" cy=\"85\" r=\"10\" fill=\"{{a}}\"/><circle cx=\"330\" cy=\"85\" r=\"10\" fill=\"{{a}}\"/><circle cx=\"200\" cy=\"20\" r=\"10\" fill=\"{{a}}\"/><circle cx=\"200\" cy=\"150\" r=\"10\" fill=\"{{a}}\"/></svg>", "label": "NASA's <em>$10B</em> Moon shopping list" }
+    ]
+  },
+  "stories": [
+    {
+      "theme": "pink",
+      "layout": "card",
+      "tag": "MONEY",
+      "topic": "money",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"300\" y=\"60\" width=\"312\" height=\"440\" rx=\"48\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"14\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><rect x=\"410\" y=\"84\" width=\"92\" height=\"18\" rx=\"9\" fill=\"{{b}}\"/><path d=\"M456 420 V210 M370 290 L456 200 L542 290\" stroke=\"{{b}}\" stroke-width=\"36\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"170\" cy=\"150\" r=\"46\" fill=\"{{a}}\"/><text x=\"170\" y=\"168\" font-size=\"52\" font-weight=\"900\" text-anchor=\"middle\" fill=\"#fff\">$</text><circle cx=\"745\" cy=\"400\" r=\"46\" fill=\"{{a}}\"/><text x=\"745\" y=\"418\" font-size=\"52\" font-weight=\"900\" text-anchor=\"middle\" fill=\"#fff\">$</text></svg>",
+      "headline": "Phone prices just had a <em>record</em> jump.",
+      "body": "US prices rose <mark>0.4% in October</mark>, more than expected. <mark>Smartphones</mark> had their <mark>biggest monthly rise on record</mark>, TVs jumped too, and <mark>groceries</mark> rose the most in <mark>six months</mark>. Markets now bet the Fed may <mark>raise rates</mark>.",
+      "source": "Reuters"
+    },
+    {
+      "theme": "teal",
+      "layout": "bottom",
+      "tag": "AI",
+      "topic": "ai-tech",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"296\" y=\"100\" width=\"320\" height=\"320\" rx=\"44\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"14\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><rect x=\"376\" y=\"180\" width=\"160\" height=\"160\" rx=\"24\" fill=\"{{b}}\"/><path d=\"M350 100 V50 M456 100 V50 M562 100 V50 M350 420 V480 M456 420 V480 M562 420 V480 M296 190 H246 M296 260 H246 M296 330 H246 M616 190 H666 M616 260 H666 M616 330 H666\" stroke=\"{{a}}\" stroke-width=\"16\" stroke-linecap=\"round\"/><path d=\"M456 205 L474 255 L524 260 L474 270 L456 320 L438 270 L388 260 L438 255 Z\" fill=\"{{deep}}\"/></svg>",
+      "headline": "Meta launched its <em>cheapest</em> AI model yet.",
+      "body": "<mark>Muse Ember</mark> costs <mark>$0.10 per million input tokens</mark> and $0.50 for output, with a <mark>1M-token</mark> context window. It's built for the <mark>repetitive steps AI agents do all day</mark>. Meta claims it beats rivals on value, but that's <mark>Meta's own claim</mark>.",
+      "source": "TestingCatalog"
+    },
+    {
+      "theme": "violet",
+      "layout": "top",
+      "tag": "SCIENCE",
+      "topic": "science",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"120\" cy=\"280\" r=\"70\" fill=\"{{b}}\" style=\"filter: drop-shadow(0 0 20px {{a}})\"/><path d=\"M215 280 H640\" stroke=\"{{a}}\" stroke-width=\"12\" stroke-dasharray=\"6 34\" stroke-linecap=\"round\"/><rect x=\"660\" y=\"245\" width=\"110\" height=\"70\" rx=\"14\" fill=\"{{a}}\" style=\"filter: drop-shadow(0 0 20px {{a}})\"/><path d=\"M770 280 H840\" stroke=\"{{b}}\" stroke-width=\"14\" stroke-linecap=\"round\"/><path d=\"M700 245 V190 M670 190 H730\" stroke=\"{{b}}\" stroke-width=\"12\" stroke-linecap=\"round\"/><text x=\"456\" y=\"220\" font-size=\"72\" font-weight=\"900\" text-anchor=\"middle\" fill=\"#fff\">24 h</text></svg>",
+      "headline": "A message to Voyager 1 now takes <em>a full day</em>.",
+      "body": "On <mark>Nov 18</mark>, Voyager 1 hits <mark>one light-day</mark> from Earth, about <mark>25.9 billion km</mark>. Launched in <mark>1977</mark>, it's the first spacecraft to get that far. A signal needs <mark>24 hours</mark> to reach it, and <mark>another 24</mark> to hear back.",
+      "source": "Science News, EarthSky"
+    },
+    {
+      "theme": "amber",
+      "layout": "bleed",
+      "tag": "SPACE",
+      "topic": "space",
+      "svg": "<svg viewBox=\"0 0 1080 760\" preserveAspectRatio=\"xMidYMid slice\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"540\" cy=\"380\" r=\"190\" fill=\"{{b}}\" style=\"filter: drop-shadow(0 0 40px {{a}})\"/><circle cx=\"480\" cy=\"320\" r=\"34\" fill=\"{{a}}\"/><circle cx=\"600\" cy=\"440\" r=\"46\" fill=\"{{a}}\"/><circle cx=\"590\" cy=\"310\" r=\"22\" fill=\"{{a}}\"/><g fill=\"{{a}}\"><circle cx=\"540\" cy=\"90\" r=\"28\"/><circle cx=\"800\" cy=\"170\" r=\"28\"/><circle cx=\"900\" cy=\"380\" r=\"28\"/><circle cx=\"800\" cy=\"600\" r=\"28\"/><circle cx=\"540\" cy=\"680\" r=\"28\"/><circle cx=\"280\" cy=\"600\" r=\"28\"/><circle cx=\"180\" cy=\"380\" r=\"28\"/><circle cx=\"280\" cy=\"170\" r=\"28\"/></g></svg>",
+      "headline": "NASA picked <em>8 companies</em> for Moon deliveries.",
+      "body": "<mark>SpaceX, Blue Origin</mark> and six others can now bid on <mark>lunar delivery missions</mark> under a <mark>10-year contract</mark> worth up to <mark>$10 billion</mark>. That's a <mark>ceiling, not money spent yet</mark>. Blue Origin also got <mark>$94M</mark> to land a <mark>nuclear-powered rover</mark>.",
+      "source": "NASA, MarketScale"
+    }
+  ]
+}
