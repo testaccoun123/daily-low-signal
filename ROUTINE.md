@@ -34,6 +34,14 @@ Read the report (and /tmp/stats.json if useful):
   still keeping 4 different topics. Stats can lag 24–48 h; with fewer than ~5 posts or all zeros,
   ignore performance and just avoid repeats.
 - If stats.js fails (e.g. missing insights permission), continue without it.
+- **No back-to-back repeats**: read `recent-stories.json` (repo root). It lists the stories from
+  the most recent posting day and is the ONLY banned list: do not cover those stories again, and
+  look for other news instead. Older stories are allowed again (e.g. today and Friday, never
+  back to back), unless the same-day list shows them. If a same-day extra post exists, also check
+  that folder's `content.json`. Exception: a genuinely new development (say what's new).
+- **Sources**: one opened reputable source per story is enough (owner decision, 2026-11-11),
+  as long as it is credited in the slide `source` and in the caption's Sources line. Still never
+  state anything you did not read in the opened source.
 
 ## 1. Pick 4 stories (last ~24 h)
 Use web search. Prefer stories that make a young person stop scrolling:
@@ -51,8 +59,8 @@ separately (e.g. "AI news today", "PlayStation Xbox Nintendo news", "Apple Googl
 details. Stories from the last 48 hours are fine if still fresh. Only give up if after ~20 searches
 you truly cannot find 4 verifiable stories — then stop and explain, never invent anything.
 
-**Every fact must be confirmed by at least 2 independent reputable sources that you actually
-opened with WebFetch** (search-result snippets alone do not count) (primary source
+**Every fact must be confirmed by at least 1 reputable source that you actually
+opened with WebFetch** (2+ preferred when easy) (search-result snippets alone do not count) (primary source
 preferred: company/agency announcement, then Reuters/AP/BBC/CNBC/The Verge etc.). If you can't
 confirm a story, drop it. Write everything in your own words — never copy article text,
 never use press photos or logos.
@@ -128,7 +136,7 @@ node carousel/publish.js posts/YYYY-MM-DD --base-url <BASE_URL> --dry-run
 
 ## 6. Quality gate (decide: publish or not)
 Publish only if ALL of these are true:
-- 4 stories, each confirmed by 2+ independent reputable sources you opened (step 1)
+- 4 stories, each confirmed by 1+ reputable source you opened, credited in the post (step 1)
 - every number, date and name on the slides and in the caption matches those sources
 - no story breaks the "Avoid" list in step 1
 - all 5 slides passed your visual check, and the dry run succeeded
@@ -140,7 +148,9 @@ wrong and stop. A skipped day is far better than a wrong post.
 ```bash
 node carousel/publish.js posts/YYYY-MM-DD --base-url <BASE_URL>
 ```
-Then send a push notification (in Swedish) with: the permalink it printed and the 4 stories in
+Then run `node carousel/recent.js posts/YYYY-MM-DD` to overwrite `recent-stories.json` with
+the stories just published (tomorrow's banned list; if a same-day extra post is made, this list
+must include the stories of the earlier post too: merge them by editing the file first). Then send a push notification (in Swedish) with: the permalink it printed and the 4 stories in
 one line each, plus one short line on how the best recent post performed (from step 0b) if stats were available. End your reply with the same summary plus the source links.
 
 If the user later writes in this session asking for a fix: you cannot edit a published
