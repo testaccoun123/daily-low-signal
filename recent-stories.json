@@ -1,26 +1,26 @@
 {
-  "posted": "2026-11-11",
-  "date": "NOV 11, 2026",
+  "posted": "2026-11-12",
+  "date": "NOV 12, 2026",
   "stories": [
     {
-      "topic": "money",
-      "headline": "Phone prices just had a record jump.",
-      "source": "Reuters"
+      "topic": "gaming",
+      "headline": "Zelda's remake just smashed a record.",
+      "source": "Video Games Chronicle"
     },
     {
       "topic": "ai-tech",
-      "headline": "Meta launched its cheapest AI model yet.",
-      "source": "TestingCatalog"
+      "headline": "Google made an AI that only answers yes or no.",
+      "source": "Google"
     },
     {
       "topic": "science",
-      "headline": "A message to Voyager 1 now takes a full day.",
-      "source": "Science News, EarthSky"
+      "headline": "DeepMind's new AI reads DNA better.",
+      "source": "Google DeepMind"
     },
     {
       "topic": "space",
-      "headline": "NASA picked 8 companies for Moon deliveries.",
-      "source": "NASA, MarketScale"
+      "headline": "SpaceX will try to catch two rockets.",
+      "source": "The Week, Space Launch Schedule"
     }
   ]
 }
