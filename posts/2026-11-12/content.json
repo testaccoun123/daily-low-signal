@@ -1,0 +1,71 @@
+{
+ "date": "NOV 12, 2026",
+ "hook": {
+  "layout": "mosaic",
+  "title": "Zelda is <span class=\"grad\">breaking records.</span> Plus 3 more.",
+  "tiles": [
+   {
+    "theme": "pink",
+    "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M200 20 L240 100 H160 Z\" fill=\"{{b}}\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><path d=\"M160 112 H240 L200 150 Z\" fill=\"{{a}}\"/><path d=\"M110 85 L135 70 V100 Z M290 85 L265 70 V100 Z\" fill=\"{{a}}\"/></svg>",
+    "label": "Zelda's remake: <em>5.2M</em> in 4 days"
+   },
+   {
+    "theme": "teal",
+    "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"120\" y=\"30\" width=\"160\" height=\"110\" rx=\"18\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"8\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><path d=\"M150 85 L180 115 L250 55\" stroke=\"{{b}}\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+    "label": "Google's <em>$0.10</em> yes/no AI"
+   },
+   {
+    "theme": "violet",
+    "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M120 20 C170 60 230 60 280 20 M120 150 C170 110 230 110 280 150\" stroke=\"{{a}}\" stroke-width=\"10\" fill=\"none\" stroke-linecap=\"round\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><path d=\"M150 40 H250 M165 65 H235 M165 105 H235 M150 130 H250\" stroke=\"{{b}}\" stroke-width=\"8\" stroke-linecap=\"round\"/></svg>",
+    "label": "AI that reads your <em>DNA</em>"
+   },
+   {
+    "theme": "amber",
+    "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M170 20 H230 V110 H170 Z\" fill=\"{{b}}\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><path d=\"M170 60 L140 110 H170 M230 60 L260 110 H230\" fill=\"{{a}}\"/><path d=\"M60 150 H340\" stroke=\"{{a}}\" stroke-width=\"8\" stroke-linecap=\"round\"/><path d=\"M130 110 V150 M270 110 V150\" stroke=\"{{a}}\" stroke-width=\"8\"/></svg>",
+    "label": "SpaceX wants to <em>catch two rockets</em>"
+   }
+  ]
+ },
+ "stories": [
+  {
+   "theme": "pink",
+   "layout": "card",
+   "tag": "GAMING",
+   "topic": "gaming",
+   "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M456 50 L560 250 H352 Z\" fill=\"{{b}}\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><path d=\"M352 270 H560 L456 440 Z\" fill=\"{{a}}\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><path d=\"M200 280 L300 220 V340 Z M712 280 L612 220 V340 Z\" fill=\"{{a}}\"/><text x=\"456\" y=\"545\" font-size=\"72\" font-weight=\"900\" text-anchor=\"middle\" fill=\"#fff\">5.2M</text></svg>",
+   "headline": "Zelda's remake just <em>smashed</em> a record.",
+   "body": "Nintendo says the <mark>Ocarina of Time remake</mark> sold <mark>5.2 million copies</mark> in its first <mark>four days</mark>, through Nov 9. That makes it the <mark>fastest-selling first-party Switch 2 game</mark> so far. It's a <mark>Switch 2 exclusive</mark>.",
+   "source": "Video Games Chronicle"
+  },
+  {
+   "theme": "teal",
+   "layout": "bottom",
+   "tag": "AI",
+   "topic": "ai-tech",
+   "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"230\" y=\"100\" width=\"452\" height=\"320\" rx=\"44\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"14\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><path d=\"M320 260 L410 350 L590 170\" stroke=\"{{b}}\" stroke-width=\"40\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"120\" cy=\"260\" r=\"36\" fill=\"{{a}}\"/><circle cx=\"792\" cy=\"200\" r=\"36\" fill=\"{{a}}\"/><circle cx=\"792\" cy=\"330\" r=\"36\" fill=\"{{b}}\"/><text x=\"456\" y=\"490\" font-size=\"64\" font-weight=\"900\" text-anchor=\"middle\" fill=\"#fff\">$0.10 / 1M</text></svg>",
+   "headline": "Google made an AI that <em>only answers</em> yes or no.",
+   "body": "The new <mark>Gemini Decisions API</mark> scores options instead of writing text. It handles up to <mark>1,000 questions per request</mark> in about <mark>150-250 ms</mark>, for <mark>$0.10 per million input tokens</mark>. There's a <mark>free tier</mark> to try it.",
+   "source": "Google"
+  },
+  {
+   "theme": "violet",
+   "layout": "top",
+   "tag": "SCIENCE",
+   "topic": "science",
+   "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M300 60 C450 160 450 260 300 360 C150 460 150 500 300 520 M612 60 C462 160 462 260 612 360 C762 460 762 500 612 520\" stroke=\"{{a}}\" stroke-width=\"22\" fill=\"none\" stroke-linecap=\"round\" style=\"filter: drop-shadow(0 0 20px {{a}})\"/><path d=\"M340 120 H572 M370 200 H542 M370 320 H542 M340 400 H572\" stroke=\"{{b}}\" stroke-width=\"18\" stroke-linecap=\"round\"/></svg>",
+   "headline": "DeepMind's new AI reads <em>DNA</em> better.",
+   "body": "<mark>AlphaGenome 2</mark> predicts how DNA changes affect <mark>specific cell types</mark>. Google says it finds <mark>nearly twice as many</mark> variants that change gene activity. It's <mark>research-only</mark> and <mark>not approved for diagnosis</mark>.",
+   "source": "Google DeepMind"
+  },
+  {
+   "theme": "amber",
+   "layout": "bleed",
+   "tag": "SPACE",
+   "topic": "space",
+   "svg": "<svg viewBox=\"0 0 1080 760\" preserveAspectRatio=\"xMidYMid slice\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"140\" y=\"80\" width=\"30\" height=\"640\" fill=\"{{panel}}\"/><path d=\"M170 220 H330 M170 300 H330\" stroke=\"{{a}}\" stroke-width=\"22\" stroke-linecap=\"round\"/><rect x=\"340\" y=\"140\" width=\"130\" height=\"420\" rx=\"30\" fill=\"{{b}}\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><path d=\"M340 560 L300 640 H510 L470 560\" fill=\"{{a}}\"/><path d=\"M690 220 L770 100 L850 220 V520 H690 Z\" fill=\"{{b}}\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><path d=\"M690 520 L630 640 H910 L850 520\" fill=\"{{a}}\"/><circle cx=\"770\" cy=\"260\" r=\"30\" fill=\"{{deep}}\"/></svg>",
+   "headline": "SpaceX will try to <em>catch two rockets</em>.",
+   "body": "<mark>Starship Flight 15</mark> targets <mark>Fri, Nov 13</mark>, 5:45pm EST. The plan: catch the <mark>booster and the ship</mark> with the tower's arms, a <mark>first for an orbital ship</mark>. The date <mark>can slip</mark> and catches can be called off.",
+   "source": "The Week, Space Launch Schedule"
+  }
+ ]
+}
