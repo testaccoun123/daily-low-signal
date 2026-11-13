@@ -1,0 +1,72 @@
+{
+  "date": "NOV 13, 2026",
+  "hook": {
+    "layout": "mosaic",
+    "title": "Nvidia's boss quit, and Anthropic wants to <span class=\"grad\">go public.</span>",
+    "tiles": [
+      {
+        "theme": "pink",
+        "label": "GTA 6 is <em>6 days</em> away",
+        "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"200\" cy=\"85\" r=\"58\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"8\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><text x=\"200\" y=\"110\" font-size=\"76\" font-weight=\"900\" fill=\"#fff\" font-family=\"sans-serif\" text-anchor=\"middle\">6</text></svg>"
+      },
+      {
+        "theme": "teal",
+        "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"140\" y=\"30\" width=\"120\" height=\"110\" rx=\"16\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"6\"/><polyline points=\"160,60 190,90 210,75 240,115\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/></svg>",
+        "label": "Nvidia's CEO <em>just quit</em>"
+      },
+      {
+        "theme": "violet",
+        "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"110\" y=\"100\" width=\"40\" height=\"45\" rx=\"6\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"5\"/><rect x=\"170\" y=\"70\" width=\"40\" height=\"75\" rx=\"6\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"5\"/><rect x=\"230\" y=\"38\" width=\"40\" height=\"107\" rx=\"6\" fill=\"{{a}}\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><polyline points=\"110,80 190,50 250,18\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"6\" stroke-linecap=\"round\"/></svg>",
+        "label": "An AI IPO worth up to <em>$64B</em>"
+      },
+      {
+        "theme": "amber",
+        "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"110\" y=\"30\" width=\"180\" height=\"100\" rx=\"12\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"6\"/><line x1=\"125\" y1=\"45\" x2=\"275\" y2=\"115\" stroke=\"#fff\" stroke-width=\"10\" stroke-linecap=\"round\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/></svg>",
+        "label": "Sony is <em>killing</em> a PC app"
+      }
+    ]
+  },
+  "stories": [
+    {
+      "theme": "pink",
+      "layout": "card",
+      "tag": "GAMING",
+      "topic": "gaming",
+      "visual": "countdown",
+      "visualValue": "6",
+      "headline": "GTA 6 is <em>6 days</em> away.",
+      "body": "Launch is <mark>November 19</mark> on <mark>PS5</mark>, with a <mark>rolling midnight release</mark> country by country. <mark>Pre-loading opened November 10</mark> on the PlayStation Store, so you can download it ahead of time and be ready the second it unlocks.",
+      "source": "PlayStation Blog, Rockstar Games"
+    },
+    {
+      "theme": "teal",
+      "layout": "bottom",
+      "tag": "MONEY",
+      "topic": "money",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"300\" y=\"130\" width=\"312\" height=\"300\" rx=\"36\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"10\"/><rect x=\"360\" y=\"190\" width=\"192\" height=\"180\" rx=\"18\" fill=\"{{deep}}\"/><polyline points=\"385,235 440,290 480,260 530,335\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"filter: drop-shadow(0 0 14px {{a}})\"/><polygon points=\"545,350 505,345 540,310\" fill=\"{{b}}\"/><g stroke=\"{{a}}\" stroke-width=\"12\" stroke-linecap=\"round\"><line x1=\"350\" y1=\"90\" x2=\"350\" y2=\"130\"/><line x1=\"456\" y1=\"90\" x2=\"456\" y2=\"130\"/><line x1=\"562\" y1=\"90\" x2=\"562\" y2=\"130\"/><line x1=\"350\" y1=\"430\" x2=\"350\" y2=\"470\"/><line x1=\"456\" y1=\"430\" x2=\"456\" y2=\"470\"/><line x1=\"562\" y1=\"430\" x2=\"562\" y2=\"470\"/><line x1=\"260\" y1=\"190\" x2=\"300\" y2=\"190\"/><line x1=\"260\" y1=\"280\" x2=\"300\" y2=\"280\"/><line x1=\"260\" y1=\"370\" x2=\"300\" y2=\"370\"/><line x1=\"612\" y1=\"190\" x2=\"652\" y2=\"190\"/><line x1=\"612\" y1=\"280\" x2=\"652\" y2=\"280\"/><line x1=\"612\" y1=\"370\" x2=\"652\" y2=\"370\"/></g></svg>",
+      "headline": "Nvidia's CEO <em>just quit.</em>",
+      "body": "<mark>Jensen Huang resigned</mark> as CEO of the chip giant on Thursday. CFO <mark>Colette Kress</mark> is <mark>interim CEO</mark>. Shares fell <mark>about 4%</mark> to a <mark>52-week low</mark> and are <mark>down 20% in November</mark>, while rivals <mark>AMD and Broadcom</mark> rose over 5%.",
+      "source": "CNBC"
+    },
+    {
+      "theme": "violet",
+      "layout": "top",
+      "tag": "AI",
+      "topic": "ai-tech",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"140\" y=\"400\" width=\"130\" height=\"90\" rx=\"12\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"8\"/><rect x=\"320\" y=\"320\" width=\"130\" height=\"170\" rx=\"12\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"8\"/><rect x=\"500\" y=\"230\" width=\"130\" height=\"260\" rx=\"12\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"8\"/><rect x=\"680\" y=\"120\" width=\"130\" height=\"370\" rx=\"12\" fill=\"{{a}}\" style=\"filter: drop-shadow(0 0 18px {{a}})\"/><polyline points=\"140,330 330,260 520,170 760,60\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"14\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"760\" cy=\"60\" r=\"22\" fill=\"{{b}}\"/><text x=\"745\" y=\"320\" font-size=\"90\" font-weight=\"900\" fill=\"#fff\" font-family=\"sans-serif\" text-anchor=\"middle\">$</text></svg>",
+      "headline": "Anthropic wants <em>$64 billion</em>.",
+      "body": "The AI company launched its <mark>IPO roadshow</mark>: <mark>825 million shares</mark> at <mark>$70 to $78</mark> on Nasdaq under <mark>ticker ANT</mark>. At the top of that range it would raise <mark>up to $64.35B</mark>. Reported dates: <mark>pricing Nov 18, trading Nov 19</mark>, not yet official.",
+      "source": "Anthropic, CNBC"
+    },
+    {
+      "theme": "amber",
+      "layout": "bleed",
+      "tag": "GAMING",
+      "topic": "gaming",
+      "svg": "<svg viewBox=\"0 0 1080 760\" preserveAspectRatio=\"xMidYMid slice\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"240\" y=\"170\" width=\"600\" height=\"360\" rx=\"30\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"12\"/><rect x=\"290\" y=\"220\" width=\"500\" height=\"260\" rx=\"12\" fill=\"{{deep}}\"/><rect x=\"440\" y=\"530\" width=\"200\" height=\"50\" fill=\"{{panel}}\"/><rect x=\"360\" y=\"580\" width=\"360\" height=\"26\" rx=\"13\" fill=\"{{a}}\"/><g style=\"filter: drop-shadow(0 0 16px {{a}})\"><path d=\"M450 400 q-30 0 -30 -30 q0 -30 35 -30 q10 -40 55 -40 q50 0 60 45 q40 0 40 35 q0 20 -25 20 z\" fill=\"{{b}}\"/></g><line x1=\"300\" y1=\"230\" x2=\"780\" y2=\"470\" stroke=\"#fff\" stroke-width=\"22\" stroke-linecap=\"round\"/></svg>",
+      "headline": "Sony is <em>shutting down</em> its PC streaming app.",
+      "body": "The <mark>PlayStation Plus PC app</mark> shuts down <mark>December 10</mark>. Sony says <mark>fewer than 0.4%</mark> of eligible Premium members used it. It let subscribers <mark>stream console games</mark> to a PC, so that option disappears.",
+      "source": "Shacknews"
+    }
+  ]
+}
