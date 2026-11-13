@@ -1,26 +1,26 @@
 {
-  "posted": "2026-11-12",
-  "date": "NOV 12, 2026",
+  "posted": "2026-11-13",
+  "date": "NOV 13, 2026",
   "stories": [
     {
       "topic": "gaming",
-      "headline": "Zelda's remake just smashed a record.",
-      "source": "Video Games Chronicle"
+      "headline": "GTA 6 is 6 days away.",
+      "source": "PlayStation Blog, Rockstar Games"
+    },
+    {
+      "topic": "money",
+      "headline": "Nvidia's CEO just quit.",
+      "source": "CNBC"
     },
     {
       "topic": "ai-tech",
-      "headline": "Google made an AI that only answers yes or no.",
-      "source": "Google"
+      "headline": "Anthropic wants $64 billion.",
+      "source": "Anthropic, CNBC"
     },
     {
-      "topic": "science",
-      "headline": "DeepMind's new AI reads DNA better.",
-      "source": "Google DeepMind"
-    },
-    {
-      "topic": "space",
-      "headline": "SpaceX will try to catch two rockets.",
-      "source": "The Week, Space Launch Schedule"
+      "topic": "gaming",
+      "headline": "Sony is shutting down its PC streaming app.",
+      "source": "Shacknews"
     }
   ]
 }
