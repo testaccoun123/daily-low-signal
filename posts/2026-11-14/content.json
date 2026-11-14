@@ -1,0 +1,55 @@
+{
+  "date": "NOV 14, 2026",
+  "hook": {
+    "layout": "mosaic",
+    "title": "Planes stopped, chips slid, and <span class=\"grad\">Mars</span> got weird.",
+    "tiles": [
+      { "theme": "pink", "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><g style=\"filter: drop-shadow(0 0 10px {{a}})\"><rect x=\"185\" y=\"20\" width=\"30\" height=\"90\" rx=\"12\" fill=\"#fff\"/><polygon points=\"185,110 170,135 185,125\" fill=\"{{a}}\"/><polygon points=\"215,110 230,135 215,125\" fill=\"{{a}}\"/><rect x=\"192\" y=\"112\" width=\"16\" height=\"22\" fill=\"{{b}}\"/></g><ellipse cx=\"200\" cy=\"150\" rx=\"150\" ry=\"14\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"4\" stroke-dasharray=\"10 8\"/></svg>", "label": "Starship made orbit. The <em>booster</em> didn't" },
+      { "theme": "teal", "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><g style=\"filter: drop-shadow(0 0 10px {{a}})\"><circle cx=\"200\" cy=\"85\" r=\"60\" fill=\"{{a}}\"/><circle cx=\"180\" cy=\"70\" r=\"14\" fill=\"{{deep}}\"/><circle cx=\"222\" cy=\"100\" r=\"10\" fill=\"{{deep}}\"/><circle cx=\"215\" cy=\"58\" r=\"6\" fill=\"{{deep}}\"/></g></svg>", "label": "Mars rocks hold <em>organic carbon</em>" },
+      { "theme": "violet", "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><polyline points=\"40,40 120,70 180,60 250,110 320,130\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"10\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><polygon points=\"300,110 350,140 295,155\" fill=\"#fff\"/></svg>", "label": "AMD lost <em>8.75%</em> in a day" },
+      { "theme": "amber", "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><g style=\"filter: drop-shadow(0 0 10px {{a}})\"><polygon points=\"200,25 215,75 320,110 320,122 215,105 210,140 235,152 235,160 200,152 165,160 165,152 190,140 185,105 80,122 80,110 185,75\" fill=\"#fff\"/></g><circle cx=\"320\" cy=\"40\" r=\"22\" fill=\"{{a}}\"/><rect x=\"317\" y=\"28\" width=\"6\" height=\"16\" fill=\"{{deep}}\"/><rect x=\"317\" y=\"48\" width=\"6\" height=\"6\" fill=\"{{deep}}\"/></svg>", "label": "US flights <em>ground-stopped</em>" }
+    ]
+  },
+  "stories": [
+    {
+      "theme": "pink",
+      "layout": "card",
+      "tag": "SPACE",
+      "topic": "space",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"456\" cy=\"430\" rx=\"380\" ry=\"60\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"8\" stroke-dasharray=\"20 16\"/><g style=\"filter: drop-shadow(0 0 20px {{a}})\"><rect x=\"406\" y=\"60\" width=\"100\" height=\"300\" rx=\"44\" fill=\"#fff\"/><polygon points=\"406,330 350,420 406,390\" fill=\"{{a}}\"/><polygon points=\"506,330 562,420 506,390\" fill=\"{{a}}\"/><rect x=\"430\" y=\"350\" width=\"52\" height=\"60\" fill=\"{{b}}\"/></g><circle cx=\"456\" cy=\"150\" r=\"22\" fill=\"{{deep}}\"/></svg>",
+      "headline": "Starship hit orbit. The <em>booster</em> blew up.",
+      "body": "SpaceX tried to <mark>catch both stages</mark> in one flight. The booster was diverted, <mark>fell into the Gulf and exploded</mark>. The ship still reached orbit and <mark>released 26 Starlink satellites</mark>. Next: an <mark>orbit-to-pad catch</mark> attempt, a first, planned for Saturday.",
+      "source": "AP via WPTZ"
+    },
+    {
+      "theme": "teal",
+      "layout": "bottom",
+      "tag": "SCIENCE",
+      "topic": "science",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><g style=\"filter: drop-shadow(0 0 20px {{a}})\"><circle cx=\"456\" cy=\"280\" r=\"210\" fill=\"{{a}}\"/><circle cx=\"380\" cy=\"220\" r=\"44\" fill=\"{{deep}}\"/><circle cx=\"530\" cy=\"340\" r=\"34\" fill=\"{{deep}}\"/><circle cx=\"500\" cy=\"190\" r=\"20\" fill=\"{{deep}}\"/><circle cx=\"390\" cy=\"380\" r=\"24\" fill=\"{{deep}}\"/></g><circle cx=\"456\" cy=\"280\" r=\"250\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"6\" stroke-dasharray=\"4 14\" stroke-linecap=\"round\"/></svg>",
+      "headline": "Perseverance found <em>organic carbon</em> on Mars.",
+      "body": "The rover detected <mark>complex organic carbon</mark> just microns under the surface of ancient rocks in <mark>Jezero Crater</mark>, the shallowest find yet. It <mark>doesn't prove life</mark>, since non-living chemistry can make it too. Only <mark>samples brought to Earth</mark> could tell more.",
+      "source": "ScienceDaily (Science Advances)"
+    },
+    {
+      "theme": "violet",
+      "layout": "top",
+      "tag": "MONEY",
+      "topic": "money",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><polyline points=\"70,120 250,200 380,160 540,320 700,380\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"24\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"filter: drop-shadow(0 0 20px {{a}})\"/><polygon points=\"660,330 820,420 640,470\" fill=\"#fff\"/></svg>",
+      "headline": "AMD stock dropped <em>8.75%</em> in one day.",
+      "body": "AMD closed Friday at <mark>$534.06</mark> after chip stocks reversed their early gains, with <mark>profit-taking</mark> and Nvidia uncertainty after its CEO's exit. AMD was up as much as <mark>30% earlier this week</mark> and still ended the week up. <mark>Nvidia reports next week.</mark>",
+      "source": "Motley Fool"
+    },
+    {
+      "theme": "amber",
+      "layout": "bleed",
+      "tag": "WORLD",
+      "topic": "world",
+      "svg": "<svg viewBox=\"0 0 1080 760\" preserveAspectRatio=\"xMidYMid slice\" xmlns=\"http://www.w3.org/2000/svg\"><g style=\"filter: drop-shadow(0 0 24px {{a}})\"><polygon points=\"540,140 575,300 900,420 900,460 575,410 560,540 640,580 640,610 540,585 440,610 440,580 520,540 505,410 180,460 180,420 505,300\" fill=\"#fff\"/></g><circle cx=\"880\" cy=\"300\" r=\"60\" fill=\"{{a}}\"/><rect x=\"871\" y=\"265\" width=\"18\" height=\"48\" fill=\"{{deep}}\"/><rect x=\"871\" y=\"325\" width=\"18\" height=\"18\" fill=\"{{deep}}\"/></svg>",
+      "headline": "A <em>nationwide</em> US flight stop. AI is being checked.",
+      "body": "A <mark>telecom failure</mark> hit air traffic control centers Friday and triggered a <mark>nationwide ground stop</mark>. Officials are examining whether the FAA's new <mark>AI airspace tool, SMART</mark>, played a part. They stress it's <mark>not established</mark> and <mark>no public threat</mark> exists.",
+      "source": "KPRC Click2Houston"
+    }
+  ]
+}
