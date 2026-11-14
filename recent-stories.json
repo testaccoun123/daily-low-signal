@@ -1,26 +1,26 @@
 {
-  "posted": "2026-11-13",
-  "date": "NOV 13, 2026",
+  "posted": "2026-11-14",
+  "date": "NOV 14, 2026",
   "stories": [
     {
-      "topic": "gaming",
-      "headline": "GTA 6 is 6 days away.",
-      "source": "PlayStation Blog, Rockstar Games"
+      "topic": "space",
+      "headline": "Starship hit orbit. The booster blew up.",
+      "source": "AP via WPTZ"
+    },
+    {
+      "topic": "science",
+      "headline": "Perseverance found organic carbon on Mars.",
+      "source": "ScienceDaily (Science Advances)"
     },
     {
       "topic": "money",
-      "headline": "Nvidia's CEO just quit.",
-      "source": "CNBC"
+      "headline": "AMD stock dropped 8.75% in one day.",
+      "source": "Motley Fool"
     },
     {
-      "topic": "ai-tech",
-      "headline": "Anthropic wants $64 billion.",
-      "source": "Anthropic, CNBC"
-    },
-    {
-      "topic": "gaming",
-      "headline": "Sony is shutting down its PC streaming app.",
-      "source": "Shacknews"
+      "topic": "world",
+      "headline": "A nationwide US flight stop. AI is being checked.",
+      "source": "KPRC Click2Houston"
     }
   ]
 }
