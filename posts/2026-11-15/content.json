@@ -1,0 +1,72 @@
+{
+  "date": "NOV 15, 2026",
+  "hook": {
+    "layout": "mosaic",
+    "title": "Today in <span class=\"grad\">4 headlines.</span>",
+    "tiles": [
+      {
+        "theme": "pink",
+        "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"200\" cy=\"85\" r=\"62\" fill=\"none\" stroke=\"{{a}}\" stroke-width=\"10\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><text x=\"200\" y=\"108\" text-anchor=\"middle\" font-size=\"72\" font-weight=\"900\" fill=\"white\" font-family=\"sans-serif\">4</text></svg>",
+        "label": "GTA 6 is <em>4 days</em> out"
+      },
+      {
+        "theme": "teal",
+        "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M130 160 Q130 110 200 110 Q270 110 270 160 Z\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"4\"/><rect x=\"110\" y=\"14\" width=\"180\" height=\"100\" rx=\"16\" fill=\"{{deep}}\" stroke=\"{{a}}\" stroke-width=\"5\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><circle cx=\"200\" cy=\"52\" r=\"18\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"5\"/><path d=\"M160 92 Q200 66 240 92\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"5\" stroke-linecap=\"round\"/></svg>",
+        "label": "Apple's <em>$299</em> screen with Siri AI"
+      },
+      {
+        "theme": "violet",
+        "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"200\" cy=\"85\" r=\"66\" fill=\"{{deep}}\" stroke=\"{{a}}\" stroke-width=\"6\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><path d=\"M200 85 V40 M200 85 L232 104\" stroke=\"white\" stroke-width=\"7\" stroke-linecap=\"round\"/><circle cx=\"200\" cy=\"85\" r=\"7\" fill=\"white\"/></svg>",
+        "label": "Microsoft was down <em>24+ hours</em>"
+      },
+      {
+        "theme": "amber",
+        "svg": "<svg viewBox=\"0 0 400 170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"130\" cy=\"85\" r=\"52\" fill=\"{{deep}}\" stroke=\"{{a}}\" stroke-width=\"5\" style=\"filter: drop-shadow(0 0 10px {{a}})\"/><path d=\"M106 85 L124 103 L156 67\" fill=\"none\" stroke=\"white\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"280\" cy=\"85\" r=\"52\" fill=\"{{deep}}\" stroke=\"{{b}}\" stroke-width=\"5\"/><path d=\"M258 63 l44 44 m0 -44 l-44 44\" stroke=\"{{b}}\" stroke-width=\"8\" stroke-linecap=\"round\"/></svg>",
+        "label": "What <em>actually</em> slows aging"
+      }
+    ]
+  },
+  "stories": [
+    {
+      "theme": "pink",
+      "layout": "card",
+      "tag": "GAMING",
+      "topic": "gaming",
+      "visual": "countdown",
+      "visualValue": "4",
+      "headline": "GTA 6 is <em>4 days</em> away.",
+      "body": "Rockstar's game launches <mark>November 19</mark> in a <mark>rolling midnight launch</mark>, starting in New Zealand and moving across time zones. On PS5, <mark>pre-loading has been open since November 10</mark>, so you can have it downloaded before it unlocks.",
+      "source": "PlayStation Blog"
+    },
+    {
+      "theme": "teal",
+      "layout": "bottom",
+      "tag": "TECH",
+      "topic": "ai-tech",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"456\" cy=\"470\" rx=\"230\" ry=\"40\" fill=\"{{deep}}\"/><path d=\"M300 470 Q300 330 456 330 Q612 330 612 470 Z\" fill=\"{{panel}}\" stroke=\"{{a}}\" stroke-width=\"6\"/><rect x=\"236\" y=\"90\" width=\"440\" height=\"270\" rx=\"36\" fill=\"{{deep}}\" stroke=\"{{a}}\" stroke-width=\"10\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><circle cx=\"456\" cy=\"190\" r=\"48\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"10\"/><path d=\"M360 300 Q456 230 552 300\" fill=\"none\" stroke=\"{{b}}\" stroke-width=\"10\" stroke-linecap=\"round\"/><rect x=\"300\" y=\"120\" width=\"40\" height=\"12\" rx=\"6\" fill=\"{{a}}\"/><rect x=\"572\" y=\"120\" width=\"40\" height=\"12\" rx=\"6\" fill=\"{{a}}\"/></svg>",
+      "headline": "Apple's <em>$299</em> screen talks back.",
+      "body": "Apple's <mark>HomeView</mark> smart display went on sale <mark>November 13</mark> for <mark>$299</mark> in the US. It has a <mark>7-inch screen</mark>, <mark>Siri AI</mark>, face recognition for <mark>up to six users</mark>, and does FaceTime, music and an intercom to other Apple devices.",
+      "source": "ABC7"
+    },
+    {
+      "theme": "violet",
+      "layout": "top",
+      "tag": "APPS",
+      "topic": "apps-social",
+      "svg": "<svg viewBox=\"0 0 912 560\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"456\" cy=\"280\" r=\"200\" fill=\"{{deep}}\" stroke=\"{{a}}\" stroke-width=\"14\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><path d=\"M456 280 L456 130\" stroke=\"white\" stroke-width=\"18\" stroke-linecap=\"round\"/><path d=\"M456 280 L560 340\" stroke=\"{{b}}\" stroke-width=\"18\" stroke-linecap=\"round\"/><circle cx=\"456\" cy=\"280\" r=\"18\" fill=\"white\"/><path d=\"M700 110 l70 70 m0 -70 l-70 70\" stroke=\"{{a}}\" stroke-width=\"22\" stroke-linecap=\"round\"/><path d=\"M150 440 h120 M150 480 h80\" stroke=\"{{b}}\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg>",
+      "headline": "Microsoft was down for <em>24+ hours</em>.",
+      "body": "A <mark>global outage</mark> hit <mark>Teams, Outlook and Copilot</mark> and disrupted businesses and governments for <mark>over 24 hours</mark>. Microsoft says the <mark>underlying issue is now fixed</mark> and services have <mark>fully recovered</mark>.",
+      "source": "Reuters"
+    },
+    {
+      "theme": "amber",
+      "layout": "bleed",
+      "tag": "SCIENCE",
+      "topic": "science",
+      "svg": "<svg viewBox=\"0 0 1080 760\" preserveAspectRatio=\"xMidYMid slice\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"760\" fill=\"{{bg}}\"/><circle cx=\"300\" cy=\"300\" r=\"170\" fill=\"{{deep}}\" stroke=\"{{a}}\" stroke-width=\"14\" style=\"filter: drop-shadow(0 0 24px {{a}})\"/><path d=\"M215 300 L285 370 L395 235\" fill=\"none\" stroke=\"white\" stroke-width=\"28\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"780\" cy=\"300\" r=\"170\" fill=\"{{deep}}\" stroke=\"{{b}}\" stroke-width=\"14\"/><path d=\"M700 220 l160 160 m0 -160 l-160 160\" stroke=\"{{b}}\" stroke-width=\"26\" stroke-linecap=\"round\"/><rect x=\"180\" y=\"540\" width=\"240\" height=\"60\" rx=\"30\" fill=\"{{a}}\"/><rect x=\"660\" y=\"540\" width=\"240\" height=\"60\" rx=\"30\" fill=\"{{panel}}\" stroke=\"{{b}}\" stroke-width=\"6\"/></svg>",
+      "headline": "Most <em>anti-aging</em> supplements didn't help.",
+      "body": "Yale researchers reviewed <mark>51 clinical studies</mark>. <mark>Exercise plus a healthy diet</mark> and some drugs like <mark>metformin and semaglutide</mark> lowered biological age markers. Over-the-counter <mark>supplements generally didn't</mark>. Catch: nobody has shown it means <mark>living longer</mark>.",
+      "source": "ScienceDaily (Nature Medicine)"
+    }
+  ]
+}
