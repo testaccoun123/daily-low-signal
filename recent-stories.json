@@ -1,26 +1,26 @@
 {
-  "posted": "2026-11-14",
-  "date": "NOV 14, 2026",
+  "posted": "2026-11-15",
+  "date": "NOV 15, 2026",
   "stories": [
     {
-      "topic": "space",
-      "headline": "Starship hit orbit. The booster blew up.",
-      "source": "AP via WPTZ"
+      "topic": "gaming",
+      "headline": "GTA 6 is 4 days away.",
+      "source": "PlayStation Blog"
+    },
+    {
+      "topic": "ai-tech",
+      "headline": "Apple's $299 screen talks back.",
+      "source": "ABC7"
+    },
+    {
+      "topic": "apps-social",
+      "headline": "Microsoft was down for 24+ hours.",
+      "source": "Reuters"
     },
     {
       "topic": "science",
-      "headline": "Perseverance found organic carbon on Mars.",
-      "source": "ScienceDaily (Science Advances)"
-    },
-    {
-      "topic": "money",
-      "headline": "AMD stock dropped 8.75% in one day.",
-      "source": "Motley Fool"
-    },
-    {
-      "topic": "world",
-      "headline": "A nationwide US flight stop. AI is being checked.",
-      "source": "KPRC Click2Houston"
+      "headline": "Most anti-aging supplements didn't help.",
+      "source": "ScienceDaily (Nature Medicine)"
     }
   ]
 }
