@@ -1,26 +1,26 @@
 {
-  "posted": "2026-11-15",
-  "date": "NOV 15, 2026",
+  "posted": "2026-11-17",
+  "date": "NOV 17, 2026",
   "stories": [
     {
       "topic": "gaming",
-      "headline": "GTA 6 is 4 days away.",
-      "source": "PlayStation Blog"
+      "headline": "Xbox's Black Friday sale hits 80% off.",
+      "source": "Xbox Wire"
     },
     {
       "topic": "ai-tech",
-      "headline": "Apple's $299 screen talks back.",
-      "source": "ABC7"
+      "headline": "California is suing OpenAI.",
+      "source": "CNBC"
     },
     {
-      "topic": "apps-social",
-      "headline": "Microsoft was down for 24+ hours.",
-      "source": "Reuters"
+      "topic": "space",
+      "headline": "SpaceX caught a Starship in mid-air.",
+      "source": "NBC News"
     },
     {
-      "topic": "science",
-      "headline": "Most anti-aging supplements didn't help.",
-      "source": "ScienceDaily (Nature Medicine)"
+      "topic": "money",
+      "headline": "Anthropic eyes a $1.4 trillion IPO.",
+      "source": "CNBC"
     }
   ]
 }
