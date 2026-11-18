@@ -92,12 +92,17 @@ When a story is about a specific **person, company, product or place**, show a r
 It does not need to be the photo from the article — any good, licensed photo of the subject works.
 
 Only use `carousel/fetch-image.js`, which takes images from Wikimedia Commons and accepts only
-licenses that allow reuse (public domain, CC0, CC BY, CC BY-SA) and writes the required credit line:
+public domain and CC0 images — they need no credit, and the slides show none. (CC BY / CC BY-SA
+photos would legally require a visible credit, so they are not used.) Good public-domain sources:
+NASA and other US government photos (official portraits, events), many logos, older press photos.
 ```bash
 node carousel/fetch-image.js posts/YYYY-MM-DD --slot <1-4> --search "Jensen Huang"
 node carousel/fetch-image.js posts/YYYY-MM-DD --slot <1-4> --file "File:Exact name.jpg"   # pick a specific candidate
 ```
 It prints the top candidates and attaches the first one to that story and its hook tile.
+Many people have no public-domain photo (e.g. most tech CEOs). Then fall back in this order:
+the person's company logo or product (e.g. "Nvidia logo", "Nvidia GPU") → a related place or object →
+an illustration.
 **Check that the photo really shows the subject** (search results can be wrong — e.g. a James Webb
 photo for "Hubble"): read the candidate titles, re-run with `--file` for the right one, and look at the
 rendered slide. Prefer a clear, recent portrait for people, the logo or a product shot for companies,
