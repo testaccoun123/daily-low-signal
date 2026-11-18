@@ -1,0 +1,405 @@
+{
+ "fps": 30,
+ "voice": "bm_george",
+ "speed": 1.25,
+ "total": 727,
+ "themes": [
+  "hook",
+  "pink",
+  "teal",
+  "violet",
+  "amber"
+ ],
+ "scenes": [
+  {
+   "text": "Here are four things you missed today.",
+   "from": 0,
+   "dur": 61,
+   "words": [
+    {
+     "w": "Here",
+     "s": 1,
+     "e": 9
+    },
+    {
+     "w": "are",
+     "s": 10,
+     "e": 12
+    },
+    {
+     "w": "four",
+     "s": 15,
+     "e": 20
+    },
+    {
+     "w": "things",
+     "s": 22,
+     "e": 32
+    },
+    {
+     "w": "you",
+     "s": 33,
+     "e": 35
+    },
+    {
+     "w": "missed",
+     "s": 37,
+     "e": 44
+    },
+    {
+     "w": "today.",
+     "s": 45,
+     "e": 65
+    }
+   ]
+  },
+  {
+   "text": "GTA 6 is just nine days away. Rockstar says November nineteenth is still locked in.",
+   "from": 61,
+   "dur": 174,
+   "words": [
+    {
+     "w": "GTA",
+     "s": 62,
+     "e": 77
+    },
+    {
+     "w": "6",
+     "s": 80,
+     "e": 94
+    },
+    {
+     "w": "is",
+     "s": 96,
+     "e": 99
+    },
+    {
+     "w": "just",
+     "s": 100,
+     "e": 107
+    },
+    {
+     "w": "nine",
+     "s": 109,
+     "e": 117
+    },
+    {
+     "w": "days",
+     "s": 118,
+     "e": 125
+    },
+    {
+     "w": "away.",
+     "s": 126,
+     "e": 145
+    },
+    {
+     "w": "Rockstar",
+     "s": 142,
+     "e": 153
+    },
+    {
+     "w": "says",
+     "s": 155,
+     "e": 164
+    },
+    {
+     "w": "November",
+     "s": 167,
+     "e": 179
+    },
+    {
+     "w": "nineteenth",
+     "s": 180,
+     "e": 201
+    },
+    {
+     "w": "is",
+     "s": 203,
+     "e": 205
+    },
+    {
+     "w": "still",
+     "s": 207,
+     "e": 214
+    },
+    {
+     "w": "locked",
+     "s": 215,
+     "e": 223
+    },
+    {
+     "w": "in.",
+     "s": 224,
+     "e": 239
+    }
+   ]
+  },
+  {
+   "text": "Google is switching off AI for students. And schools that say no will lose Google Search too.",
+   "from": 235,
+   "dur": 160,
+   "words": [
+    {
+     "w": "Google",
+     "s": 236,
+     "e": 247
+    },
+    {
+     "w": "is",
+     "s": 248,
+     "e": 251
+    },
+    {
+     "w": "switching",
+     "s": 252,
+     "e": 261
+    },
+    {
+     "w": "off",
+     "s": 263,
+     "e": 270
+    },
+    {
+     "w": "AI",
+     "s": 272,
+     "e": 286
+    },
+    {
+     "w": "for",
+     "s": 287,
+     "e": 289
+    },
+    {
+     "w": "students.",
+     "s": 291,
+     "e": 313
+    },
+    {
+     "w": "And",
+     "s": 310,
+     "e": 312
+    },
+    {
+     "w": "schools",
+     "s": 313,
+     "e": 324
+    },
+    {
+     "w": "that",
+     "s": 325,
+     "e": 328
+    },
+    {
+     "w": "say",
+     "s": 330,
+     "e": 335
+    },
+    {
+     "w": "no",
+     "s": 337,
+     "e": 348
+    },
+    {
+     "w": "will",
+     "s": 350,
+     "e": 353
+    },
+    {
+     "w": "lose",
+     "s": 354,
+     "e": 360
+    },
+    {
+     "w": "Google",
+     "s": 362,
+     "e": 370
+    },
+    {
+     "w": "Search",
+     "s": 372,
+     "e": 380
+    },
+    {
+     "w": "too.",
+     "s": 383,
+     "e": 399
+    }
+   ]
+  },
+  {
+   "text": "A robot just built something in space, completely on its own. No astronauts needed.",
+   "from": 395,
+   "dur": 148,
+   "words": [
+    {
+     "w": "A",
+     "s": 396,
+     "e": 398
+    },
+    {
+     "w": "robot",
+     "s": 399,
+     "e": 411
+    },
+    {
+     "w": "just",
+     "s": 412,
+     "e": 419
+    },
+    {
+     "w": "built",
+     "s": 420,
+     "e": 425
+    },
+    {
+     "w": "something",
+     "s": 427,
+     "e": 435
+    },
+    {
+     "w": "in",
+     "s": 437,
+     "e": 439
+    },
+    {
+     "w": "space,",
+     "s": 441,
+     "e": 457
+    },
+    {
+     "w": "completely",
+     "s": 461,
+     "e": 475
+    },
+    {
+     "w": "on",
+     "s": 476,
+     "e": 478
+    },
+    {
+     "w": "its",
+     "s": 479,
+     "e": 483
+    },
+    {
+     "w": "own.",
+     "s": 484,
+     "e": 501
+    },
+    {
+     "w": "No",
+     "s": 498,
+     "e": 506
+    },
+    {
+     "w": "astronauts",
+     "s": 508,
+     "e": 525
+    },
+    {
+     "w": "needed.",
+     "s": 527,
+     "e": 546
+    }
+   ]
+  },
+  {
+   "text": "And Hubble is slowly falling. Without a rescue, it could come crashing back to Earth within seven years.",
+   "from": 543,
+   "dur": 184,
+   "words": [
+    {
+     "w": "And",
+     "s": 544,
+     "e": 547
+    },
+    {
+     "w": "Hubble",
+     "s": 548,
+     "e": 561
+    },
+    {
+     "w": "is",
+     "s": 564,
+     "e": 566
+    },
+    {
+     "w": "slowly",
+     "s": 569,
+     "e": 581
+    },
+    {
+     "w": "falling.",
+     "s": 583,
+     "e": 604
+    },
+    {
+     "w": "Without",
+     "s": 600,
+     "e": 608
+    },
+    {
+     "w": "a",
+     "s": 609,
+     "e": 610
+    },
+    {
+     "w": "rescue,",
+     "s": 611,
+     "e": 630
+    },
+    {
+     "w": "it",
+     "s": 633,
+     "e": 635
+    },
+    {
+     "w": "could",
+     "s": 636,
+     "e": 640
+    },
+    {
+     "w": "come",
+     "s": 641,
+     "e": 646
+    },
+    {
+     "w": "crashing",
+     "s": 648,
+     "e": 658
+    },
+    {
+     "w": "back",
+     "s": 659,
+     "e": 665
+    },
+    {
+     "w": "to",
+     "s": 666,
+     "e": 668
+    },
+    {
+     "w": "Earth",
+     "s": 670,
+     "e": 680
+    },
+    {
+     "w": "within",
+     "s": 682,
+     "e": 689
+    },
+    {
+     "w": "seven",
+     "s": 691,
+     "e": 699
+    },
+    {
+     "w": "years.",
+     "s": 700,
+     "e": 720
+    }
+   ]
+  }
+ ]
+}
