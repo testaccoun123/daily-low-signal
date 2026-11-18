@@ -5,15 +5,16 @@
 //   node carousel/fetch-image.js <post-dir> --slot <1-4> --search "Jensen Huang"
 //   node carousel/fetch-image.js <post-dir> --slot <1-4> --file "File:Example.jpg"
 //
-// Only licenses that allow reuse on a commercial social account are accepted:
-// public domain, CC0, CC BY and CC BY-SA. Everything else (NC, ND, fair use, GFDL-only, unknown) is skipped.
+// Only images that need NO attribution are accepted (public domain and CC0), because the slides
+// show no photo credits. CC BY / CC BY-SA require a visible credit, so they are skipped, as is
+// everything else (NC, ND, fair use, GFDL, unknown). The credit is still stored in content.json.
 
 const fs = require('fs');
 const path = require('path');
 
 const API = 'https://commons.wikimedia.org/w/api.php';
 const UA = 'daily-low-signal-carousel/1.0 (automated news carousel renderer)';
-const ALLOWED = /^(public domain|pd\b|pd-|cc0|cc by(-sa)? \d(\.\d)?)/i;
+const ALLOWED = /^(public domain|pd\b|pd-|cc0)/i;
 const BLOCKED = /(nc|nd|fair use|non-free)/i;
 
 const args = process.argv.slice(2);
