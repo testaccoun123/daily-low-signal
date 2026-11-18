@@ -68,6 +68,18 @@ h2 { font-size: 74px; line-height: 1.0; font-weight: 900; letter-spacing: -2.5px
 .l-bleed .visual { position: absolute; left: 0; top: 0; width: 1080px; height: 760px; }
 .l-bleed .visual { z-index: 0; }
 .l-bleed .text { flex: 1; justify-content: flex-end; }
+/* ---- real photos (licensed, with credit) ---- */
+.photo { position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden;
+  border: 2px solid color-mix(in srgb, var(--a) 55%, transparent); box-shadow: 0 0 50px color-mix(in srgb, var(--a) 25%, transparent); }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.photo.portrait img.main { position: relative; object-fit: contain; }
+.photo.portrait img.bg { position: absolute; inset: -40px; width: calc(100% + 80px); height: calc(100% + 80px); filter: blur(36px) brightness(.55); }
+.credit { position: absolute; right: 12px; bottom: 10px; max-width: calc(100% - 24px); font-family: 'JetBrains Mono', monospace; font-size: 15px;
+  color: #fff; background: rgba(0,0,0,.6); padding: 4px 10px; border-radius: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.l-bleed .photo { border-radius: 0; border: none; box-shadow: none; }
+.l-bleed .credit { top: 120px; bottom: auto; right: 80px; max-width: 920px; }
+.l-card .card .visual:has(.photo) { height: 100%; }
+.l-card .card .photo { border-radius: 0; border: none; box-shadow: none; }
 body.l-bleed::after { content: ''; position: absolute; left: 0; right: 0; top: 600px; bottom: 0; z-index: 1;
   background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--bg) 85%, transparent) 30%, var(--bg) 60%); }
 `;
@@ -251,6 +263,11 @@ body.l-mosaic {
 .tile .num { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 24px; color: var(--a); letter-spacing: 2px; }
 .tile .mini { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
 .tile .mini svg { width: 100%; height: 100%; overflow: visible; }
+.grid { grid-template-rows: 1fr 1fr; min-height: 0; }
+.tile { min-height: 0; overflow: hidden; }
+.tile .mini { flex: 1 1 0; min-height: 0; }
+.tile .mini .photo { height: calc(100% - 18px); border-radius: 18px; border: none; box-shadow: none; margin: 6px 0 12px; }
+.tile .mini .credit { font-size: 11px; right: 6px; bottom: 6px; padding: 2px 6px; }
 .tile .label { font-size: 36px; line-height: 1.08; font-weight: 800; letter-spacing: -1px; color: #fff; }
 .tile .label em { color: var(--a); }
 .swipe { margin-top: 30px; display: flex; align-items: center; justify-content: space-between; }
@@ -262,10 +279,18 @@ body.l-mosaic {
 // Custom SVG from content.json: {{a}} {{b}} {{bg}} {{panel}} {{deep}} are replaced with theme colors.
 const fillSvg = (svg, t) => svg.replace(/\{\{(a|b|bg|panel|deep)\}\}/g, (_, k) => t[k]);
 
+// A licensed photo (photo.src is inlined by render.js) with its credit line.
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+// Portraits are shown whole (contain) over a blurred copy of themselves, so faces are never cropped.
+const photoHtml = (p) => `<div class="photo${p.portrait ? ' portrait' : ''}">`
+  + (p.portrait ? `<img class="bg" src="${p.src}" alt="">` : '')
+  + `<img class="main" src="${p.src}" alt=""><span class="credit">${esc(p.credit || '')}</span></div>`;
+
 function mosaicSlide(c, total) {
   const tiles = c.hook.tiles.map((tile, i) => {
     const t = THEMES[tile.theme];
-    const art = tile.svg ? fillSvg(tile.svg, t) : (minis[tile.mini] ? minis[tile.mini](t) : '');
+    const art = tile.photo && tile.photo.src ? photoHtml(tile.photo)
+      : tile.svg ? fillSvg(tile.svg, t) : (minis[tile.mini] ? minis[tile.mini](t) : '');
     return `<div class="tile" style="--a:${t.a};--b:${t.b};--panel:${t.panel}">
       <div class="num">0${i + 1}</div>
       <div class="mini">${art}</div>
@@ -304,7 +329,8 @@ ${visual(t, c.hook.visual)}
 function storySlide(c, s, n, total) {
   const t = THEMES[s.theme || 'blue'];
   const layout = s.layout || 'top';
-  const v = s.svg ? `<div class="visual">${fillSvg(s.svg, t)}</div>` : visual(t, s.visual, s.visualValue);
+  const v = s.photo && s.photo.src ? `<div class="visual">${photoHtml(s.photo)}</div>`
+    : s.svg ? `<div class="visual">${fillSvg(s.svg, t)}</div>` : visual(t, s.visual, s.visualValue);
   const text = `<div class="text">
   <div class="tag">${s.tag}</div>
   <h2>${s.headline}</h2>
