@@ -15,6 +15,16 @@ const CHROME_PATHS = [
 (async () => {
   const dir = path.resolve(process.argv[2] || '.');
   const content = JSON.parse(fs.readFileSync(path.join(dir, 'content.json'), 'utf8'));
+  // Inline downloaded photos as data URIs so the page needs no file access.
+  const inline = (p) => {
+    if (!p || !p.file) return;
+    const file = path.join(dir, p.file);
+    if (!fs.existsSync(file)) throw new Error(`photo missing: ${file}`);
+    const mime = /\.png$/i.test(p.file) ? 'image/png' : 'image/jpeg';
+    p.src = `data:${mime};base64,${fs.readFileSync(file).toString('base64')}`;
+  };
+  (content.stories || []).forEach((s) => inline(s.photo));
+  ((content.hook && content.hook.tiles) || []).forEach((t) => inline(t.photo));
   const executablePath = CHROME_PATHS.find((p) => fs.existsSync(p));
   if (!executablePath) throw new Error('No Chrome found. Run: npx @puppeteer/browsers install chrome-headless-shell@stable  and set CHROME_PATH to the printed path');
 
