@@ -335,7 +335,6 @@ function storySlide(c, s, n, total) {
   <div class="tag">${s.tag}</div>
   <h2>${s.headline}</h2>
   <p class="body">${s.body}</p>
-  <div class="source">SOURCE: ${s.source}</div>
 </div>`;
   let inner;
   if (layout === 'bottom') inner = text + v;
