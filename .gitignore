@@ -1,2 +1,7 @@
 .env
 node_modules/
+tools/
+reel/node_modules/
+reel/public/
+posts/**/*.mp4
+posts/**/*.wav
