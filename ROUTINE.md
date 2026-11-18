@@ -1,172 +1,183 @@
-# Daily routine: daily.low.signal
+# Daily routine: daily.low.signal (Reels)
 
-You are producing today's Instagram carousel for **@daily.low.signal**, an anonymous
-English-language news account: *"The news, minus the noise."* Audience: young people with
-short attention spans. Goal: maximum views, saves and shares, while staying 100% accurate.
+You are producing and publishing today's **Instagram Reel** for **@daily.low.signal**, an anonymous
+English-language news account: *"The news, minus the noise."* Audience: young people with short
+attention spans. Goal: maximum views, watch time, saves and shares, while staying 100% accurate.
 
-This routine **publishes automatically** — nobody reviews the post before it goes live, so the
-quality gate in step 6 is the only check. When in doubt, don't publish: notify instead.
+The reel is a ~20–25 s vertical video built with **Remotion** (React) in `reel/`: a hook scene, then
+4 news stories, each with its **own custom animation tied to that news**, a British AI voice-over
+(Kokoro, voice `bm_george`), word-by-word captions and synthesized sound effects.
+
+This routine **publishes automatically** — nobody reviews the reel before it goes live, so the
+quality gate in step 8 is the only check. When in doubt, don't publish: notify instead.
+
+(The old carousel routine is in `ROUTINE-carousel.md`; do not use it unless told to.)
 
 ## 0. Setup
 ```bash
 npm ci
-ls /usr/bin/google-chrome /usr/bin/chromium /usr/bin/chromium-browser 2>/dev/null \
-  || npx -y @puppeteer/browsers install chrome-headless-shell@stable --path /tmp/chrome
-# if installed to /tmp/chrome: export CHROME_PATH=<path to chrome-headless-shell binary it printed>
+cd reel && npm ci && npx remotion browser ensure && cd ..
 ```
 Secrets come from environment variables: `IG_ACCESS_TOKEN`, `IG_USER_ID`, `IG_API_BASE`,
 `GITHUB_TOKEN`, `GITHUB_REPO`. Never print them, never write them to files, never commit them.
-Post folder: `posts/YYYY-MM-DD` using today's date in **Europe/Stockholm**.
-If that folder already exists (e.g. an extra post on the same day), use the next free suffix:
-`posts/YYYY-MM-DD-2`, `posts/YYYY-MM-DD-3`, ... Never overwrite or delete an existing post folder.
-`posts/2026-11-10` is the reference example of a finished post.
+Post folder: `posts/YYYY-MM-DD` using today's date in **Europe/Stockholm**. If it already exists, use
+`posts/YYYY-MM-DD-2`, `-3`, ... Never overwrite or delete an existing post folder.
 
-## 0b. Learn from past posts
+**Study the worked example before you write anything:** `reel/examples/2026-11-18/` (scenes + cues)
+is the approved reel the account owner was happy with. Its content is in `posts/_photo-test/content.json`.
+`reel/src/today/` currently contains the same files; you will replace them with today's.
+
+## 1. Learn from past posts
 ```bash
 node carousel/stats.js --posts 14 --json /tmp/stats.json
 ```
-Read the report (and /tmp/stats.json if useful):
 - **Don't repeat**: the captions list every story already posted — never cover the same story again
   unless there is a genuinely new development (then say what's new).
-- **Do more of what works**: compare posts by shares, saves, reach and the "BEST" line. Note which
-  categories (gaming, AI, space, apps...) and which hook styles (question, number, "while you were
-  scrolling", bold claim) performed best, and lean today's story mix and hook toward them — while
-  still keeping 4 different topics. Stats can lag 24–48 h; with fewer than ~5 posts or all zeros,
-  ignore performance and just avoid repeats.
-- If stats.js fails (e.g. missing insights permission), continue without it.
+- **Do more of what works**: compare posts by views, shares, saves and the "BEST" line; lean today's
+  story mix and hook toward the categories and hook styles that performed best (still 4 different topics).
+  Stats lag 24–48 h; with fewer than ~5 posts or all zeros, just avoid repeats.
+- If stats.js fails, continue without it.
 
-## 1. Pick 4 stories (last ~24 h)
-Use web search. Prefer stories that make a young person stop scrolling:
-tech & AI, gaming, internet/platform changes (apps they use), science & space, money that
-affects them (prices, jobs, rent), big culture moments, genuinely huge world events.
+## 2. Pick 4 stories (last ~24–48 h)
+Use web search. Prefer stories that make a young person stop scrolling: tech & AI, gaming,
+internet/platform changes (apps they use), science & space, money that affects them (prices, jobs,
+rent), big culture moments, genuinely huge world events. **Also prefer stories that suggest a
+striking visual** (something falls, launches, breaks, switches off, races, explodes, counts down).
 
-Avoid: partisan politics (Instagram limits its reach), war/graphic violence, crime involving
-private individuals, unproven allegations about real people, rumors, deaths unless confirmed
-by major outlets, anything older than ~3 days.
+Avoid: partisan politics (Instagram limits its reach), war/graphic violence, crime involving private
+individuals, unproven allegations about real people, rumors, deaths unless confirmed by major outlets,
+anything older than ~3 days.
 
-Be persistent — finding 4 good stories normally takes 10–20 searches. Search each category
-separately (e.g. "AI news today", "PlayStation Xbox Nintendo news", "Apple Google Meta announcement",
-"NASA SpaceX news", "TikTok Instagram YouTube update", "Reuters business news today"), use
-`mode: "extended"` for fresh results, and use WebFetch to open articles and confirm their date and
-details. Stories from the last 48 hours are fine if still fresh. Only give up if after ~20 searches
-you truly cannot find 4 verifiable stories — then stop and explain, never invent anything.
+Be persistent — finding 4 good stories normally takes 10–20 searches. Search each category separately,
+use `mode: "extended"` for fresh results, and open articles with WebFetch to confirm date and details.
+Only give up if after ~20 searches you truly cannot find 4 verifiable stories — then stop and notify.
 
-**Every fact must be confirmed by at least 2 independent reputable sources that you actually
-opened with WebFetch** (search-result snippets alone do not count) (primary source
-preferred: company/agency announcement, then Reuters/AP/BBC/CNBC/The Verge etc.). If you can't
-confirm a story, drop it. Write everything in your own words — never copy article text,
-never use press photos or logos.
+**Every fact must be confirmed by at least 2 independent reputable sources that you actually opened
+with WebFetch** (primary source preferred: company/agency announcement, then Reuters/AP/BBC/CNBC/The
+Verge etc.). If you can't confirm a story, drop it. Write everything in your own words.
 
-## 2. Write `posts/YYYY-MM-DD/content.json`
-Use `posts/2026-11-10/content.json` as the reference example. Structure:
+## 3. Write `posts/YYYY-MM-DD/content.json`
 ```json
 {
-  "date": "NOV 11, 2026",
-  "hook": {
-    "layout": "mosaic",
-    "title": "Curiosity hook, ≤ 9 words, with one <span class=\"grad\">word</span>",
-    "tiles": [ { "theme": "pink", "mini": "countdown", "svg": "<optional custom svg>", "label": "≤ 6 words, 1–2 in <em>" } ]
-  },
+  "date": "NOV 19, 2026",
+  "hook": { "voiceover": "Here are four things you missed today." },
   "stories": [
-    { "theme": "pink", "layout": "card", "tag": "GAMING",
-      "visual": "countdown", "visualValue": "9", "svg": "<optional custom svg>",
-      "headline": "≤ 9 words, 1–3 words in <em>", "body": "40–50 words with 4–6 <mark>key phrases</mark>",
-      "source": "Outlet A, Outlet B (kept for our records only — never shown on slides or in the caption)" }
+    { "theme": "pink", "topic": "gaming", "tag": "GAMING",
+      "headline": "GTA 6 is 9 days away",
+      "voiceover": "GTA 6 is just nine days away. Rockstar says November nineteenth is still locked in.",
+      "concept": "counter slams 99→9, logo spins in, calendar flips to NOV 19, padlock snaps shut",
+      "source": "Outlet A, Outlet B (our records only — never shown in the reel or caption)" }
   ]
 }
 ```
 Rules:
-- Exactly 4 stories → 5 slides. No call-to-action slide.
-- Every story has a `"topic"` from this fixed list (used for the topic statistics):
-  `gaming`, `ai-tech`, `apps-social`, `space`, `science`, `money`, `culture`, `world`.
-- Themes: use `pink`, `teal`, `violet`, `amber` once each (same color for a story's tile and its slide).
-- Layouts: use `card`, `bottom`, `top`, `bleed` once each so slides look different.
-- Hook title: vary it daily (e.g. "4 things that happened while you were <span class=\"grad\">scrolling.</span>").
-  Tile labels are teasers: give half the story so people swipe.
-- Body: say what happened, the key number/date, and why it matters to the reader. `<mark>` the
-  words a skimmer needs. Numbers must match the sources exactly.
+- Exactly 4 stories. Themes `pink`, `teal`, `violet`, `amber` — once each, in story order.
+- `topic` from: `gaming`, `ai-tech`, `apps-social`, `space`, `science`, `money`, `culture`, `world`.
+- **Voice lines**: hook = one short line (vary it daily). Each story = 1–2 short spoken sentences,
+  ~14–20 words, punchy, the key fact + why it matters. Write numbers the way they are said where it
+  matters for speech ("November nineteenth"). Total reel must land at **20–25 s**.
+- Never put news sources, URLs or photo credits on screen or in the caption.
 
-### Photos (preferred)
-When a story is about a specific **person, company, product or place**, show a real photo of it
-(e.g. a story about Nvidia's CEO → a photo of Jensen Huang; about Apple → an Apple logo or store).
-It does not need to be the photo from the article — any good, licensed photo of the subject works.
-
-Only use `carousel/fetch-image.js`, which takes images from Wikimedia Commons and accepts only
-public domain and CC0 images — they need no credit, and the slides show none. (CC BY / CC BY-SA
-photos would legally require a visible credit, so they are not used.) Good public-domain sources:
-NASA and other US government photos (official portraits, events), many logos, older press photos.
+### Images (optional but great)
+Real images of the subject only via `carousel/fetch-image.js` (Wikimedia Commons, **public domain /
+CC0 only**, so no credit is needed):
 ```bash
-node carousel/fetch-image.js posts/YYYY-MM-DD --slot <1-4> --search "Jensen Huang"
-node carousel/fetch-image.js posts/YYYY-MM-DD --slot <1-4> --file "File:Exact name.jpg"   # pick a specific candidate
+node carousel/fetch-image.js posts/YYYY-MM-DD --slot <1-4> --search "Nvidia logo"
+node carousel/fetch-image.js posts/YYYY-MM-DD --slot <1-4> --file "File:Exact name.svg"
 ```
-It prints the top candidates and attaches the first one to that story and its hook tile.
-Many people have no public-domain photo (e.g. most tech CEOs). Then fall back in this order:
-the person's company logo or product (e.g. "Nvidia logo", "Nvidia GPU") → a related place or object →
-an illustration.
-**Check that the photo really shows the subject** (search results can be wrong — e.g. a James Webb
-photo for "Hubble"): read the candidate titles, re-run with `--file` for the right one, and look at the
-rendered slide. Prefer a clear, recent portrait for people, the logo or a product shot for companies,
-NASA photos for space. For a portrait-format photo, the template shows it whole without cropping.
+It saves `photo-<slot>.png|jpg` in the post folder. **Check it really shows the subject** (search
+results can be wrong — read the candidate titles, use `--file` for the right one, look at it).
+Most tech CEOs have no public-domain photo → use the company logo/product instead. You may make
+derived assets such as cut-outs and save them as `asset-<name>.png` in the post folder (e.g. remove a
+black background with ffmpeg `colorkey`). Never: images from news sites/Google/Getty/Reuters/AP/social
+media, edited or caricatured faces of real people, AI-generated images of real people, or a person's
+photo next to an unproven allegation.
 
-Never: download images from news sites, Google Images, Getty/Reuters/AP/AFP, social media, or anything
-without an allowed license; edit or caricature a real person's face; use AI-generated images of real
-people; or pair a person's photo with an unproven allegation. If `fetch-image.js` finds nothing
-suitable (exit code 2), use an illustration instead (below).
-
-### Visuals (fallback when there's no fitting photo)
-Built-ins: story `visual` = `countdown` (uses `visualValue`), `toggle`, `truss`, `hubble`, `reentry`;
-tile `mini` = `countdown`, `toggle`, `truss`, `reentry`.
-If none fits (usually), write your own simple, bold, flat illustration as an inline `svg` string:
-- Story `svg`: `viewBox="0 0 912 560"` (for `bleed` layout use `viewBox="0 0 1080 760" preserveAspectRatio="xMidYMid slice"`).
-- Tile `svg`: `viewBox="0 0 400 170"`.
-- Colors only via placeholders `{{a}}` (accent), `{{b}}` (light accent), `{{bg}}`, `{{panel}}`, `{{deep}}`, plus white.
-- In tile SVGs do NOT use `id`/`url(#...)` (tiles share one page); use `style="filter: drop-shadow(0 0 10px {{a}})"` for glow.
-- No logos, no real people's faces, no copyrighted characters. Icons/shapes/symbols only.
-
-## 3. Write `posts/YYYY-MM-DD/caption.txt`
+## 4. Voice-over and timings
+```bash
+cd reel && node prepare-kokoro.mjs ../posts/YYYY-MM-DD && cd ..
 ```
-<one punchy line summarising the 3 biggest stories> 👇
+Writes `reel/public/vo.wav`, copies the images into `reel/public/`, and writes
+`reel/src/timeline.json` (scene start frames + every word's frame). Check the printed total: if it is
+outside 20–25 s, shorten/lengthen the voice lines in content.json and run it again.
 
-01 — ...
-02 — ...
-03 — ...
-04 — ...
+## 5. Write today's scenes — the creative core
+Replace the files in `reel/src/today/`:
+- `Hook.tsx` — the 2×2 tile mosaic teasing today's 4 stories (adapt the example: each tile gets a tiny
+  live animation + a half-told teaser label; title words spring in).
+- One `.tsx` per story (any names), each `export const X: React.FC<{ dur: number }>`.
+- `index.ts` — `export const SCENES: React.FC<{ dur: number }>[] = [Hook, Story1, Story2, Story3, Story4];`
+- `cues.js` — today's sound effects (see step 6).
+
+**What each story animation must be:** a short, **extreme and unexpected** visual tied to *that*
+news, so the viewer has to keep watching to see what happens — e.g. the telescope burns through the
+atmosphere and explodes on impact; a toggle flips OFF and the brand glitches and shatters; a counter
+races 99→9 and slams; a ring is built by a robot arm piece by piece. Dramatise freely, but **never show
+something as fact that didn't happen** — the voice line must carry any hedge ("could", "if").
+
+Craft rules (the example does all of these — copy its techniques):
+- Sync every beat to the voice: `wordAt(sceneIndex, /^word$/i, fallback)` from `../theme` gives the
+  frame (relative to the scene) when a word is spoken. Land the big moment on the key word.
+- Use Remotion `spring()` and `interpolate()` with easing — no linear, mechanical motion.
+- Something new on screen every ~1.5–2 s inside each story (cut, camera move, new element).
+- Camera energy: `shake()` from `../theme` on impacts, push-ins, dutch angles, flashes, particles.
+- Big bold on-screen text for the key number/fact (Inter 900 / JetBrains Mono), in the scene's theme
+  color: `THEMES.pink|teal|violet|amber` (`a` accent, `b` light, `bg`, `panel`, `deep`).
+- Layout: keep the top ~150 px for the progress bar/brand, keep the caption band (y ≈ 1200–1460)
+  readable, and nothing important in the bottom ~400 px (Instagram UI).
+- Images: `<Img src={staticFile('photo-1.png')} />` etc. (only files that exist in `reel/public/`).
+- Deterministic only: no `Math.random()` (use `rnd()` from `../theme`), no network, no timers.
+- `Reel.tsx`, `Overlay.tsx` (captions, progress bar), `theme.ts` and transitions are fixed — don't edit.
+
+## 6. Sound effects — `reel/src/today/cues.js`
+Export `module.exports = (kit) => { ... }` that places today's sounds. Compute every cue frame with
+the same formulas your scenes use (`kit.wordAt`, `kit.land` for spring landings, `kit.interpolate`);
+frames are ABSOLUTE (`kit.S[i]` = start frame of scene i). Use the ready-made sounds in
+`reel/sfx/kit.js` — `whoosh`, `click`, `metalClank`, `sparks`, `spinWhoosh`, `powerDown`,
+`glitchSlice`, `slam`, `boom`, `roar` and the raw instruments `kit.I.*` (thud, pop, bell, glass,
+crash, paperFwip, launchWhistle...) — with `kit.put(kit.hits|kit.beds, buffer, frame, gain, pan, reverb)`.
+Every transition gets a whoosh, every impact a hit, every count a tick. Follow the example's levels.
+
+## 7. Build and review
+```bash
+node reel/build.mjs posts/YYYY-MM-DD --skip-voice
+```
+(type-checks the scenes, renders the sound effects, renders `reel.mp4` and `cover.jpg` into the post
+folder). Fix any error and rebuild. Then **look at it**: extract frames and view them with Read, e.g.
+```bash
+F=$(node -e "process.stdout.write(require('./reel/node_modules/ffmpeg-static'))")
+for s in 1 3 5 7 9 11 13 15 17 19 21 23; do $F -v error -y -ss $s -i posts/YYYY-MM-DD/reel.mp4 -frames:v 1 -vf scale=360:-1 /tmp/f$s.jpg; done
+```
+Check: every scene's animation is visible and reads at a glance, the key moment lands, no text is cut
+off or overlapping the captions, images are the right subject, no blank/black frames. Fix and rebuild.
+
+Write `posts/YYYY-MM-DD/caption.txt`:
+```
+<one punchy line teasing the 3 biggest stories> 👇
 
 <one question that invites comments>
 
 #news #dailynews <3 topical hashtags>
 ```
+Then dry-run: `node carousel/publish-reel.js posts/YYYY-MM-DD --dry-run`
 
-## 4. Render and check
-```bash
-node carousel/render.js posts/YYYY-MM-DD
-```
-Open every `slide-N.jpg` with the Read tool and check: no text overflowing or cut off, nothing
-overlapping, illustration readable, highlights look right. Fix content.json / svg and re-render
-until all 5 are clean.
-
-## 5. Upload and dry run
-```bash
-node carousel/upload.js posts/YYYY-MM-DD        # prints BASE_URL
-node carousel/publish.js posts/YYYY-MM-DD --base-url <BASE_URL> --dry-run
-```
-
-## 6. Quality gate (decide: publish or not)
+## 8. Quality gate (decide: publish or not)
 Publish only if ALL of these are true:
-- 4 stories, each confirmed by 2+ independent reputable sources you opened (step 1)
-- every number, date and name on the slides and in the caption matches those sources
-- no story breaks the "Avoid" list in step 1
-- all 5 slides passed your visual check, and the dry run succeeded
+- 4 stories, each confirmed by 2+ independent reputable sources you opened (step 2)
+- every number, date and name in the voice-over, on screen and in the caption matches those sources
+- no story breaks the "Avoid" list, no animation presents an invented event as fact
+- the reel built, is 18–30 s, your frame review passed, and the dry run succeeded
 
-If anything fails: do NOT publish. Send a push notification (in Swedish) explaining what is
-wrong and stop. A skipped day is far better than a wrong post.
+If anything fails: do NOT publish. Send a push notification (in Swedish) explaining what is wrong and stop.
 
-## 7. Publish
+## 9. Publish
 ```bash
-node carousel/publish.js posts/YYYY-MM-DD --base-url <BASE_URL>
+node carousel/publish-reel.js posts/YYYY-MM-DD
 ```
-Then send a push notification (in Swedish) with: the permalink it printed and the 4 stories in
-one line each, plus one short line on how the best recent post performed (from step 0b) if stats were available. End your reply with the same summary plus the source links.
+(uploads the video directly to Instagram, waits for processing, publishes, archives content.json,
+caption and cover to the repo). Then send a push notification (in Swedish) with the permalink, the 4
+stories in one line each, and one short line on how the best recent post performed (from step 1).
+End your reply with the same summary plus the source links. Do not git push.
 
-If the user later writes in this session asking for a fix: you cannot edit a published
-carousel via the API — explain that, and offer to make a corrected post if they want.
+If the user later asks for a fix: a published reel can't be edited via the API — explain that and
+offer to make a corrected post.
