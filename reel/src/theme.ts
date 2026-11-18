@@ -1,0 +1,45 @@
+import { loadFont as loadInter } from '@remotion/google-fonts/Inter';
+import { loadFont as loadMono } from '@remotion/google-fonts/JetBrainsMono';
+import timeline from './timeline.json';
+
+export const INTER = loadInter('normal', { weights: ['500', '700', '800', '900'], subsets: ['latin'] }).fontFamily;
+export const MONO = loadMono('normal', { weights: ['500', '700', '800'], subsets: ['latin'] }).fontFamily;
+
+export type Theme = { a: string; b: string; bg: string; deep: string; panel: string };
+export const THEMES: Record<string, Theme> = {
+  hook: { a: '#ffffff', b: '#dcd2ff', bg: '#07070d', deep: '#2a2a40', panel: '#12121e' },
+  pink: { a: '#ff4fa3', b: '#ffb8dc', bg: '#10040c', deep: '#7a1d5a', panel: '#1e0a18' },
+  teal: { a: '#2ee6b8', b: '#a8ffe8', bg: '#03100d', deep: '#0f5c4c', panel: '#08201b' },
+  violet: { a: '#a78bff', b: '#dcd2ff', bg: '#07051a', deep: '#3b2a8a', panel: '#130f30' },
+  amber: { a: '#ff8a3d', b: '#ffd2ad', bg: '#110703', deep: '#7a2e0c', panel: '#221008' },
+};
+// Per-scene colour themes, written into timeline.json by prepare-kokoro.mjs from content.json.
+export const SCENE_THEMES: string[] = (timeline as { themes?: string[] }).themes ?? ['hook', 'pink', 'teal', 'violet', 'amber'];
+export const HOOK_GRAD = 'linear-gradient(90deg,#ff4fa3,#ff8a3d 35%,#2ee6b8 65%,#a78bff)';
+
+export type Word = { w: string; s: number; e: number };
+export type SceneT = { text: string; from: number; dur: number; words: Word[] };
+export const TL = timeline as { fps: number; total: number; scenes: SceneT[] };
+
+/** Frame (relative to scene start) at which the first word matching `re` is spoken. */
+export const wordAt = (scene: number, re: RegExp, fallback = 0): number => {
+  const sc = TL.scenes[scene];
+  const w = sc.words.find((x) => re.test(x.w.replace(/[^\w]/g, '')));
+  return w ? w.s - sc.from : fallback;
+};
+
+/** Deterministic hash noise in [0,1). */
+export const rnd = (i: number) => {
+  const s = Math.sin(i * 127.1 + 311.7) * 43758.5453;
+  return s - Math.floor(s);
+};
+
+/** Decaying screen shake (amp px, tau frames) starting at frame `at`. */
+export const shake = (f: number, at: number, amp: number, tau = 3) => {
+  const t = f - at;
+  if (t < 0) return [0, 0];
+  const env = amp * Math.exp(-t / tau);
+  return [env * Math.sin(t * 3.3), env * 0.8 * Math.sin(t * 4.7 + 1.3)];
+};
+
+export const clamp = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' } as const;
