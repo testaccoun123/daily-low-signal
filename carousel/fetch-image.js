@@ -51,7 +51,7 @@ function pick(pages) {
     };
   }).filter(Boolean);
   return candidates
-    .filter((c) => /image\/(jpeg|png)/.test(c.mime) && c.width >= 600 && c.height >= 500)
+    .filter((c) => (/image\/svg/.test(c.mime) || (/image\/(jpeg|png)/.test(c.mime) && c.width >= 600 && c.height >= 500)))
     .filter((c) => ALLOWED.test(c.license) && !BLOCKED.test(c.license))
     .sort((a, b) => a.index - b.index);
 }
@@ -72,13 +72,18 @@ function pick(pages) {
   const best = choices[0];
   const res = await fetch(best.thumb, { headers: { 'User-Agent': UA } });
   if (!res.ok) throw new Error(`download failed ${res.status}`);
-  const ext = best.mime === 'image/png' ? 'png' : 'jpg';
+  // SVGs (logos) come back from Commons as a PNG rendering of the requested width.
+  const isGraphic = /image\/(png|svg)/.test(best.mime);
+  const ext = isGraphic ? 'png' : 'jpg';
   const fileName = `photo-${slot}.${ext}`;
   fs.writeFileSync(path.join(dir, fileName), Buffer.from(await res.arrayBuffer()));
 
   const artist = best.artist.replace(/^(photographer|photo|author)\s*:\s*/i, '').slice(0, 60);
   const credit = `Photo: ${artist} / ${best.license} / Wikimedia Commons`;
-  const photo = { file: fileName, credit, source: best.page, license: best.license, portrait: best.height > best.width * 1.05 };
+  // Logos and graphics are shown whole on a plain panel ("contain"); photos fill the frame.
+  const contain = isGraphic || /logo/i.test(best.title);
+  const photo = { file: fileName, credit, source: best.page, license: best.license, contain,
+    portrait: !contain && best.height > best.width * 1.05 };
 
   const contentFile = path.join(dir, 'content.json');
   if (fs.existsSync(contentFile)) {
