@@ -284,7 +284,7 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 // Portraits are shown whole (contain) over a blurred copy of themselves, so faces are never cropped.
 const photoHtml = (p) => `<div class="photo${p.portrait ? ' portrait' : ''}">`
   + (p.portrait ? `<img class="bg" src="${p.src}" alt="">` : '')
-  + `<img class="main" src="${p.src}" alt=""><span class="credit">${esc(p.credit || '')}</span></div>`;
+  + `<img class="main" src="${p.src}" alt=""></div>`;
 
 function mosaicSlide(c, total) {
   const tiles = c.hook.tiles.map((tile, i) => {
