@@ -71,7 +71,7 @@ Use `posts/2026-11-10/content.json` as the reference example. Structure:
     { "theme": "pink", "layout": "card", "tag": "GAMING",
       "visual": "countdown", "visualValue": "9", "svg": "<optional custom svg>",
       "headline": "≤ 9 words, 1–3 words in <em>", "body": "40–50 words with 4–6 <mark>key phrases</mark>",
-      "source": "Outlet A, Outlet B" }
+      "source": "Outlet A, Outlet B (kept for our records only — never shown on slides or in the caption)" }
   ]
 }
 ```
@@ -128,8 +128,6 @@ If none fits (usually), write your own simple, bold, flat illustration as an inl
 04 — ...
 
 <one question that invites comments>
-
-Sources: <outlets>
 
 #news #dailynews <3 topical hashtags>
 ```
