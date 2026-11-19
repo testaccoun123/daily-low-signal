@@ -1,9 +1,12 @@
-import { loadFont as loadInter } from '@remotion/google-fonts/Inter';
-import { loadFont as loadMono } from '@remotion/google-fonts/JetBrainsMono';
+import { loadFont } from '@remotion/fonts';
+import { staticFile } from 'remotion';
 import timeline from './timeline.json';
 
-export const INTER = loadInter('normal', { weights: ['500', '700', '800', '900'], subsets: ['latin'] }).fontFamily;
-export const MONO = loadMono('normal', { weights: ['500', '700', '800'], subsets: ['latin'] }).fontFamily;
+// Fonts are bundled in public/fonts (SIL Open Font License) so rendering never needs the network.
+export const INTER = 'Inter';
+export const MONO = 'JetBrains Mono';
+for (const w of ['500', '700', '800', '900']) loadFont({ family: INTER, url: staticFile(`fonts/inter-latin-${w}-normal.woff2`), weight: w });
+for (const w of ['500', '700', '800']) loadFont({ family: MONO, url: staticFile(`fonts/jetbrains-mono-latin-${w}-normal.woff2`), weight: w });
 
 export type Theme = { a: string; b: string; bg: string; deep: string; panel: string };
 export const THEMES: Record<string, Theme> = {
