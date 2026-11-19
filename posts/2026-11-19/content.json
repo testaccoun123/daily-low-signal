@@ -1,0 +1,76 @@
+{
+  "date": "NOV 19, 2026",
+  "hook": {
+    "voiceover": "Four things that blew up overnight."
+  },
+  "stories": [
+    {
+      "theme": "pink",
+      "topic": "gaming",
+      "tag": "GAMING",
+      "headline": "GTA 6 is finally out",
+      "voiceover": "GTA 6 is finally out. It's unlocking at midnight, country by country.",
+      "concept": "clock races to 00:00, giant padlock explodes into shards, Rockstar logo punches through, world map lights up zone by zone",
+      "source": "Rockstar Games newswire, CBS News, NBC Chicago",
+      "photo": {
+        "file": "photo-1.png",
+        "credit": "Photo: Take-Two Interativa de / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Rockstar_Games_Logo.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    },
+    {
+      "theme": "teal",
+      "topic": "apps-social",
+      "tag": "APPS",
+      "headline": "Apple's own update broke Apple",
+      "voiceover": "Apple says its own update broke iCloud, Apple Pay and the App Store. Not a hack.",
+      "concept": "update bar hits 100%, iPhone app icons crack and topple like dominoes, red OUTAGE glitch, NOT A HACK stamp",
+      "source": "TIME, 9to5Mac",
+      "photo": {
+        "file": "photo-2.png",
+        "credit": "Photo: Original: Rob Janoff / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Apple_logo_black.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    },
+    {
+      "theme": "violet",
+      "topic": "ai-tech",
+      "tag": "AI",
+      "headline": "OpenAI's new AI hit 'High'",
+      "voiceover": "OpenAI says its newest model is the first it rates high for helping AI improve itself.",
+      "concept": "AI chip builds a copy of itself, risk meter needle slams from LOW into HIGH, alarm light",
+      "source": "The Decoder, The Next Web",
+      "photo": {
+        "file": "photo-3.png",
+        "credit": "Photo: OpenAI / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:OpenAI_wordmark_2017.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    },
+    {
+      "theme": "amber",
+      "topic": "space",
+      "tag": "SPACE",
+      "headline": "A giant star ate a smaller one",
+      "voiceover": "And in Andromeda, a giant star swallowed a smaller one. It took about seven years.",
+      "concept": "small star spirals into a huge red supergiant, gets swallowed, blinding flash, dust shell explodes outward, 7 YEARS slams",
+      "source": "NASA, Sci.News, IEEC, Phys.org",
+      "photo": {
+        "file": "photo-4.jpg",
+        "credit": "Photo: NASA/JPL/California Institute of Technology / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Andromeda_galaxy.jpg",
+        "license": "Public domain",
+        "contain": false,
+        "portrait": false
+      }
+    }
+  ]
+}
