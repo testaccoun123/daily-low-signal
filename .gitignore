@@ -2,6 +2,7 @@
 node_modules/
 tools/
 reel/node_modules/
-reel/public/
+reel/public/*
+!reel/public/fonts/
 posts/**/*.mp4
 posts/**/*.wav
