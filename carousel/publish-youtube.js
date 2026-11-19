@@ -19,6 +19,14 @@ function loadEnv() {
 
 (async () => {
   const args = process.argv.slice(2);
+  if (args[0] === '--check') { // credentials only: refresh the token, upload nothing
+    const e = loadEnv();
+    const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({
+      client_id: e.YT_CLIENT_ID, client_secret: e.YT_CLIENT_SECRET, refresh_token: e.YT_REFRESH_TOKEN, grant_type: 'refresh_token' }) });
+    const j = await r.json();
+    console.log(j.access_token ? 'YOUTUBE CREDENTIALS OK' : `YOUTUBE CREDENTIALS FAILED: ${j.error || r.status}`);
+    process.exit(j.access_token ? 0 : 1);
+  }
   const dir = args[0];
   const dryRun = args.includes('--dry-run');
   const pi = args.indexOf('--privacy');
