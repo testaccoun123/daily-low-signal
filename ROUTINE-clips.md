@@ -1,8 +1,10 @@
-# Clip routine: xQc GTA 6 clips → Reels (@daily.low.signal)
+# Clip routine: xQc game clips → Reels (@daily.low.signal)
 
-You publish ONE short Reel made from today's best **xQc** Twitch clip of **Grand Theft Auto VI**.
+You publish ONE short Reel made from today's best **xQc** Twitch clip. Default game: **Grand Theft Auto VI**.
+If several of his most-viewed clips today are from **another game**, the routine pivots to that game
+(decided automatically by `clip.mjs list`, step 1). Never non-game categories (Just Chatting, IRL...).
 The account owner has **written permission from xQc** to repost his clips on Instagram (incl. monetization).
-Only xQc, only GTA 6 clips. Never use clips from any other streamer.
+Only xQc. Never use clips from any other streamer.
 This routine **publishes automatically**; the checks in step 5 are the only gate.
 
 ## 0. Setup
@@ -16,10 +18,13 @@ pip install -q -U yt-dlp 2>/dev/null || (curl -sL https://github.com/yt-dlp/yt-d
 
 ## 1. Candidates
 ```bash
-cd reel && node clip.mjs list --channel xqc --game "Grand Theft Auto VI" --n 20 && cd ..
+cd reel && node clip.mjs list --channel xqc --game auto --default "Grand Theft Auto VI" --n 20 && cd ..
 ```
-Prints today's GTA 6 clips by views as JSON lines, with **every clip already posted removed**
+The first line is the **game decision**: `{"decision": {"game", "pivot", "reason"}}`. GTA VI stays unless another
+game has ≥ 2 of the top-5 clips AND more views in the top 10 than GTA VI (or GTA VI has no clips today).
+Then it prints that game's clips by views as JSON lines, with **every clip already posted removed**
 (it checks the `posts/clip-*-<slug>` folders in the GitHub repo — that is the duplicate guard).
+Use the decided game for the rest of the run; mention a pivot in the push notification.
 
 ## 2. Pick one
 Take the most-viewed candidate unless it is: shorter than ~10 s, just menus/loading/nothing happening,
@@ -44,15 +49,17 @@ nothing broken. Write `posts/clip-YYYY-MM-DD-<slug>/caption.txt`:
 
 <one short question to the viewer>
 
-#xqc #gta6 #gtavi #gaming #twitch
+#xqc <2 hashtags for the game, e.g. #gta6 #gtavi> #gaming #twitch
 ```
+The hook and label name the actual game (e.g. "xQc vs ELDEN RING's hardest boss").
 Do not mention permission, licensing or credit in the caption. Then:
 ```bash
 node carousel/publish-reel.js posts/clip-YYYY-MM-DD-<slug> --dry-run
 ```
 
 ## 5. Gate → publish
-Publish only if: it is an xQc clip, category GTA 6, not already posted (step 1 list), build + review OK,
+Publish only if: it is an xQc clip, its category is the game decided in step 1 (a real game, not Just Chatting/IRL),
+not already posted (step 1 list), build + review OK,
 dry run OK. Then:
 ```bash
 node carousel/publish-reel.js posts/clip-YYYY-MM-DD-<slug>
