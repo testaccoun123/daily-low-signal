@@ -8,8 +8,13 @@
   body { margin: 0; background: #050000; color: #f2f2f2; font: 17px/1.6 system-ui, -apple-system, Segoe UI, Arial, sans-serif; }
   main { max-width: 640px; margin: 0 auto; padding: 64px 20px; }
   h1 { font-size: 40px; margin: 0 0 8px; letter-spacing: -1px; }
+  h2 { font-size: 20px; margin: 36px 0 6px; }
   .bar { display: inline-block; width: 10px; height: 18px; background: #ff1f3d; border-radius: 2px; margin-right: 10px; box-shadow: 0 0 12px #ff1f3d; }
   p { color: #c9c9c9; } a { color: #ff4d64; }
+  .yt { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #3a0910; border-radius: 10px; background: #120204; margin: 6px 0; }
+  .yt b { color: #fff; }
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid #2a0a0e; font-size: 15px; }
+  footer a { margin-right: 18px; }
 </style>
 </head>
 <body>
@@ -17,10 +22,21 @@
   <h1><span class="bar"></span>Daily Low Signal</h1>
   <p><em>The news, minus the noise.</em></p>
   <p>Daily Low Signal publishes short daily news videos about tech, gaming, science and internet culture, plus short gaming clips, on
-    <a href="https://www.instagram.com/daily.low.signal/">Instagram</a> and
-    <a href="https://www.youtube.com/channel/UCTIpW12MYMBgnCnZXVeViDg">YouTube</a>.</p>
-  <p><strong>Low Signal Uploader</strong> is the channel owner's internal tool that uploads these videos to the channel's own YouTube account using the YouTube API Services. It has no other users.</p>
-  <p><a href="privacy.html">Privacy Policy</a></p>
+    <a href="https://www.youtube.com/channel/UCTIpW12MYMBgnCnZXVeViDg">YouTube</a> and
+    <a href="https://www.instagram.com/daily.low.signal/">Instagram</a>.</p>
+
+  <h2>Low Signal Uploader</h2>
+  <p class="yt">▶ <span>Uses <b>YouTube API Services</b> to upload our videos to our own YouTube channel.</span></p>
+  <p><strong>Low Signal Uploader</strong> is the channel owner's internal tool. It uploads the channel's own videos to the channel's own
+    YouTube account with the YouTube Data API (<code>videos.insert</code>). It has no other users and does not access any other YouTube data.
+    By using it, the user agrees to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>; see the
+    <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+  <footer>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>
+  </footer>
 </main>
 </body>
 </html>
