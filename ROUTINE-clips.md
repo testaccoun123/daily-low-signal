@@ -3,7 +3,8 @@
 You publish ONE short Reel made from today's best **xQc** Twitch clip. Default game: **Grand Theft Auto VI**.
 If several of his most-viewed clips today are from **another game**, the routine pivots to that game
 (decided automatically by `clip.mjs list`, step 1). Never non-game categories (Just Chatting, IRL...).
-The account owner has **written permission from xQc** to repost his clips on Instagram (incl. monetization).
+The account owner has **written permission from xQc** to repost his clips on all platforms (Instagram and
+YouTube, incl. monetization).
 Only xQc. Never use clips from any other streamer.
 This routine **publishes automatically**; the checks in step 5 are the only gate.
 
@@ -65,5 +66,11 @@ dry run OK. Then:
 node carousel/publish-reel.js posts/clip-YYYY-MM-DD-<slug>
 ```
 (uploads, publishes, archives the folder record to the repo so it is never posted again).
+Then, **only if `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN` are set**, also post it as a
+YouTube Short (the permission from xQc covers all platforms):
+```bash
+node carousel/publish-youtube.js posts/clip-YYYY-MM-DD-<slug>
+```
+A YouTube failure must not block the Instagram post — mention it in the notification (add the YouTube link if uploaded).
 Send a push notification in Swedish: "Nytt xQc-klipp publicerat: <permalink> — <clip title>".
 If something failed, do not publish; send a short Swedish push notification saying why. Do not git push.
