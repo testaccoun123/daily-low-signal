@@ -1,7 +1,8 @@
 // Streamer clip reels (only for streamers who gave written permission — see ROUTINE-clips.md).
 //
-//   node clip.mjs list  [--channel xqc] [--game "Grand Theft Auto VI"] [--n 15]
-//        -> today's most-viewed clips of that game, already-posted ones removed (JSON lines)
+//   node clip.mjs list  [--channel xqc] [--game auto|"<Twitch category>"] [--default "Grand Theft Auto VI"] [--n 20]
+//        -> first line {"decision": {game, pivot, reason}}: which game to post today (auto = default game unless
+//           another game dominates the top clips), then that game's clips by views, already-posted ones removed
 //   node clip.mjs build <clip-url> --hook "BIG HOOK TEXT" --label "short label" [--accent "#ff4fa3"] [--max 30]
 //        -> posts/clip-YYYY-MM-DD-<slug>/{source.mp4, reel.mp4, cover.jpg, content.json}
 // Then write caption.txt in that folder and publish with carousel/publish-reel.js.
@@ -37,16 +38,45 @@ async function postedSlugs() {
   return set;
 }
 
+// Twitch categories that are not games — never pivot to these.
+const NON_GAMES = new Set(['Just Chatting', 'IRL', 'Music', 'Talk Shows & Podcasts', 'Sports', 'Watch Party', 'Pools, Hot Tubs, and Beaches',
+  'Art', 'Special Events', 'ASMR', 'Travel & Outdoors', 'Food & Drink', 'Science & Technology', 'Makers & Crafting', 'Software and Game Development']);
+
+// Which game to post today: the default game, unless another game clearly dominates xQc's top clips.
+// Pivot rule: another game has >= 2 of the top-5 clips AND more total views in the top 10 than the default.
+// If the default game has no clips at all today, take the game with the most views in the top 10.
+function decideGame(clips, def) {
+  const top10 = clips.slice(0, 10), top5 = clips.slice(0, 5);
+  const per = {};
+  for (const c of top10) {
+    if (!c.game || NON_GAMES.has(c.game)) continue;
+    per[c.game] ??= { clipsTop10: 0, clipsTop5: 0, views: 0 };
+    per[c.game].clipsTop10++; per[c.game].views += c.views || 0;
+  }
+  for (const c of top5) if (per[c.game]) per[c.game].clipsTop5++;
+  const defViews = per[def]?.views || 0;
+  const rivals = Object.entries(per).filter(([g]) => g !== def).sort((a, b) => b[1].views - a[1].views);
+  const [g, s] = rivals[0] || [];
+  if (g && s.clipsTop5 >= 2 && s.views > defViews) return { game: g, pivot: true, reason: `${g}: ${s.clipsTop5} of top 5, ${s.views} views vs ${def} ${defViews}`, perGame: per };
+  if (!per[def] && g) return { game: g, pivot: true, reason: `no ${def} clips in the top 10 today; ${g} has the most views`, perGame: per };
+  return { game: def, pivot: false, reason: g ? `${def} keeps the lead (${defViews} views vs ${g} ${s.views}, ${s.clipsTop5} in top 5)` : `only ${def} among games`, perGame: per };
+}
+
 async function list() {
-  const channel = opt('--channel', 'xqc'), game = opt('--game', 'Grand Theft Auto VI'), n = Number(opt('--n', '15'));
+  const channel = opt('--channel', 'xqc'), n = Number(opt('--n', '20'));
+  const gameArg = opt('--game', 'auto'), def = opt('--default', 'Grand Theft Auto VI');
   const urls = run(YTDLP, ['--flat-playlist', '--playlist-end', String(n), '--print', '%(url)s', `https://www.twitch.tv/${channel}/clips?filter=clips&range=24hr`]).trim().split(/\r?\n/).filter(Boolean);
-  const posted = await postedSlugs();
+  const clips = [];
   for (const url of urls) {
     const j = JSON.parse(run(YTDLP, ['-J', url]));
-    const slug = String(j.display_id).split('-')[0];
-    if (!(j.categories || []).includes(game) || posted.has(slug)) continue;
-    console.log(JSON.stringify({ url, slug, views: j.view_count, seconds: j.duration, title: j.title, portrait: (j.formats || []).some((f) => /^portrait/.test(f.format_id)) }));
+    clips.push({ url, slug: String(j.display_id).split('-')[0], views: j.view_count, seconds: j.duration, title: j.title,
+      game: (j.categories || [])[0] || null, portrait: (j.formats || []).some((f) => /^portrait/.test(f.format_id)) });
   }
+  clips.sort((a, b) => (b.views || 0) - (a.views || 0));
+  const decision = gameArg === 'auto' ? decideGame(clips, def) : { game: gameArg, pivot: false, reason: 'game set with --game' };
+  console.log(JSON.stringify({ decision }));
+  const posted = await postedSlugs();
+  for (const c of clips) if (c.game === decision.game && !posted.has(c.slug)) console.log(JSON.stringify(c));
 }
 
 // Last pause between 18 s and `max` s, so the reel ends on a finished sentence.
