@@ -1,0 +1,76 @@
+{
+  "date": "NOV 20, 2026",
+  "hook": {
+    "voiceover": "Four things blew up while you scrolled."
+  },
+  "stories": [
+    {
+      "theme": "pink",
+      "topic": "money",
+      "tag": "MONEY",
+      "headline": "Anthropic just had the biggest IPO ever",
+      "voiceover": "Claude's maker Anthropic just had the biggest IPO ever. Shares opened thirty-four percent higher.",
+      "concept": "stock chart line rockets up and smashes through the top of the frame, +34% slams, Nasdaq-style bell rings",
+      "source": "CBS News, The Next Web (IPO $83, opened +34% (CBS: $111.50), closed $97.17 = +17%, ~$81B raised, largest IPO on record, Nov 19, ticker ANT)",
+      "photo": {
+        "file": "photo-1.png",
+        "credit": "Photo: Anthropic / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Anthropic_logo.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    },
+    {
+      "theme": "teal",
+      "topic": "gaming",
+      "tag": "GAMING",
+      "headline": "Valve shut the 2TB Steam Machine waitlist",
+      "voiceover": "Valve closed the waitlist for its two-terabyte Steam Machine. Memory costs are soaring.",
+      "concept": "a queue of people marching toward a gate, a steel shutter slams down with OUT OF STOCK, RAM chip price tag spins into $???",
+      "source": "Valve Steam Hardware announcement (Nov 19), GamesRadar+, VGTimes",
+      "photo": {
+        "file": "photo-2.png",
+        "credit": "Photo: Steam / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Steam_icon_logo.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    },
+    {
+      "theme": "violet",
+      "topic": "apps-social",
+      "tag": "APPS",
+      "headline": "You can now edit an Instagram Story after posting",
+      "voiceover": "You can now edit Instagram Stories after posting. You get fifteen minutes, and keep your views.",
+      "concept": "phone with a story containing a typo, eraser zaps the typo, a 15:00 timer appears, view counter stays locked",
+      "source": "Adam Mosseri post via Gizmodo (Nov 18), Forbes Australia, India.com",
+      "photo": {
+        "file": "photo-3.png",
+        "credit": "Photo: Instagram / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Instagram_logo_2016.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    },
+    {
+      "theme": "amber",
+      "topic": "space",
+      "tag": "SPACE",
+      "headline": "Google booked a rocket for AI in space",
+      "voiceover": "And Google booked a Blue Origin rocket to fly its AI computers to space, in early twenty twenty-nine.",
+      "concept": "a server rack straps onto a rocket, blasts off through clouds, unfolds giant solar wings in orbit, 2029 slams",
+      "source": "Via Satellite, Reuters via Yahoo Finance (New Glenn, Project Suncatcher, Q1 2029, TPU satellites ~ a data-center rack each)",
+      "photo": {
+        "file": "photo-4.png",
+        "credit": "Photo: Google LLC / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Google_2015_logo.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    }
+  ]
+}
