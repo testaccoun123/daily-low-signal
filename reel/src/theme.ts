@@ -37,12 +37,8 @@ export const rnd = (i: number) => {
   return s - Math.floor(s);
 };
 
-/** Decaying screen shake (amp px, tau frames) starting at frame `at`. */
-export const shake = (f: number, at: number, amp: number, tau = 3) => {
-  const t = f - at;
-  if (t < 0) return [0, 0];
-  const env = amp * Math.exp(-t / tau);
-  return [env * Math.sin(t * 3.3), env * 0.8 * Math.sin(t * 4.7 + 1.3)];
-};
+/** Screen shake is switched OFF by design (cosy style, owner's decision 2026-11-20): always returns [0, 0].
+ *  Kept so older scenes still compile. Use a slow push-in, a soft glow or a gentle scale instead. */
+export const shake = (_f: number, _at: number, _amp: number, _tau = 3): [number, number] => [0, 0];
 
 export const clamp = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' } as const;

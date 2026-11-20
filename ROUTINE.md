@@ -8,6 +8,10 @@ The reel is a ~20–25 s vertical video built with **Remotion** (React) in `reel
 4 news stories, each with its **own custom animation tied to that news**, a British AI voice-over
 (Kokoro, voice `bm_george`), word-by-word captions and synthesized sound effects.
 
+**Style (owner's decision, 2026-11-20): cosy, smooth and satisfying — never aggressive.** No screen
+shake at all, no white flashes, no slams/booms/harsh clicks. Motion glides and settles; sounds are soft,
+tuned and pleasant. Surprise comes from *what* happens, not from violence of motion or volume.
+
 This routine **publishes automatically** — nobody reviews the reel before it goes live, so the
 quality gate in step 8 is the only check. When in doubt, don't publish: notify instead.
 
@@ -23,9 +27,11 @@ Secrets come from environment variables: `IG_ACCESS_TOKEN`, `IG_USER_ID`, `IG_AP
 Post folder: `posts/YYYY-MM-DD` using today's date in **Europe/Stockholm**. If it already exists, use
 `posts/YYYY-MM-DD-2`, `-3`, ... Never overwrite or delete an existing post folder.
 
-**Study the worked example before you write anything:** `reel/examples/2026-11-18/` (scenes + cues)
-is the approved reel the account owner was happy with. Its content is in `posts/_photo-test/content.json`.
-`reel/src/today/` currently contains the same files; you will replace them with today's.
+**Study the worked example before you write anything:** `reel/examples/2026-11-20-cosy/` (scenes + cues)
+is the approved reel in the current cosy style (Anthropic IPO / Steam Machine / Instagram edit / Google
+Suncatcher). Its content is in `posts/2026-11-20/content.json`. The older `reel/examples/2026-11-18/` shows
+useful techniques (word sync, camera, images) but its aggressive look and sounds are **retired** — don't copy
+its shakes, flashes or slams. `reel/src/today/` contains the previous day's files; you will replace them.
 
 ## 1. Learn from past posts
 ```bash
@@ -109,18 +115,22 @@ Replace the files in `reel/src/today/`:
 - `index.ts` — `export const SCENES: React.FC<{ dur: number }>[] = [Hook, Story1, Story2, Story3, Story4];`
 - `cues.js` — today's sound effects (see step 6).
 
-**What each story animation must be:** a short, **extreme and unexpected** visual tied to *that*
-news, so the viewer has to keep watching to see what happens — e.g. the telescope burns through the
-atmosphere and explodes on impact; a toggle flips OFF and the brand glitches and shatters; a counter
-races 99→9 and slams; a ring is built by a robot arm piece by piece. Dramatise freely, but **never show
+**What each story animation must be:** a short, **surprising and satisfying** visual tied to *that*
+news, so the viewer wants to keep watching to see what happens — e.g. a chart line glides up and breaks
+through the top of the frame; a shutter rolls down over a waitlist; a pencil fixes a typo and the letters
+float back into place; a ring is built by a robot arm piece by piece; a rocket lifts off and unfolds its
+solar wings. Think "oddly satisfying", not "explosion". Dramatise freely, but **never show
 something as fact that didn't happen** — the voice line must carry any hedge ("could", "if").
 
 Craft rules (the example does all of these — copy its techniques):
 - Sync every beat to the voice: `wordAt(sceneIndex, /^word$/i, fallback)` from `../theme` gives the
   frame (relative to the scene) when a word is spoken. Land the big moment on the key word.
-- Use Remotion `spring()` and `interpolate()` with easing — no linear, mechanical motion.
-- Something new on screen every ~1.5–2 s inside each story (cut, camera move, new element).
-- Camera energy: `shake()` from `../theme` on impacts, push-ins, dutch angles, flashes, particles.
+- Use Remotion `spring()` and `interpolate()` with easing — no linear, mechanical motion. Springs must
+  settle without hard bounce: `damping` ≥ 20, `stiffness` ≤ 120. Scale-ins start at ≤ 1.2×, never 3–5×.
+- Something new on screen every ~1.5–2 s inside each story (cut, slow camera move, new element).
+- Camera: slow push-ins, gentle drift, soft glows and calm particles. **No screen shake** (`shake()` now
+  always returns [0, 0] — don't fake it with manual jitter/rumble), **no white flashes** (use a soft
+  coloured glow ≤ 0.15 opacity over ~1 s instead), no strobing or glitch effects.
 - Big bold on-screen text for the key number/fact (Inter 900 / JetBrains Mono), in the scene's theme
   color: `THEMES.pink|teal|violet|amber` (`a` accent, `b` light, `bg`, `panel`, `deep`).
 - Layout: keep the top ~150 px for the progress bar/brand, keep the caption band (y ≈ 1200–1460)
@@ -130,13 +140,17 @@ Craft rules (the example does all of these — copy its techniques):
 - `Reel.tsx`, `Overlay.tsx` (captions, progress bar), `theme.ts` and transitions are fixed — don't edit.
 
 ## 6. Sound effects — `reel/src/today/cues.js`
+The kit runs in **cosy mode by default** (`reel/sfx/cosy.js`): a warm pad bed under the whole reel, and
+slam/boom/click/glass/clank are automatically swapped for soft tuned sounds. Still choose gentle sounds
+yourself: marimba, music box (`kit.I.musicBox`), bells, wood ticks, paper, soft pops, low airy whooshes.
 Export `module.exports = (kit) => { ... }` that places today's sounds. Compute every cue frame with
 the same formulas your scenes use (`kit.wordAt`, `kit.land` for spring landings, `kit.interpolate`);
 frames are ABSOLUTE (`kit.S[i]` = start frame of scene i). Use the ready-made sounds in
 `reel/sfx/kit.js` — `whoosh`, `click`, `metalClank`, `sparks`, `spinWhoosh`, `powerDown`,
 `glitchSlice`, `slam`, `boom`, `roar` and the raw instruments `kit.I.*` (thud, pop, bell, glass,
 crash, paperFwip, launchWhistle...) — with `kit.put(kit.hits|kit.beds, buffer, frame, gain, pan, reverb)`.
-Every transition gets a whoosh, every impact a hit, every count a tick. Follow the example's levels.
+Every transition gets a soft whoosh, every landing a gentle tuned note, every count a soft tick. Follow
+the cosy example's levels; nothing should startle.
 
 ## 7. Build and review
 ```bash
@@ -149,7 +163,8 @@ F=$(node -e "process.stdout.write(require('./reel/node_modules/ffmpeg-static'))"
 for s in 1 3 5 7 9 11 13 15 17 19 21 23; do $F -v error -y -ss $s -i posts/YYYY-MM-DD/reel.mp4 -frames:v 1 -vf scale=360:-1 /tmp/f$s.jpg; done
 ```
 Check: every scene's animation is visible and reads at a glance, the key moment lands, no text is cut
-off or overlapping the captions, images are the right subject, no blank/black frames. Fix and rebuild.
+off or overlapping the captions, images are the right subject, no blank/black frames, and nothing looks
+aggressive (no shake, flash, strobe). Fix and rebuild.
 
 Write `posts/YYYY-MM-DD/caption.txt`:
 ```

@@ -12,16 +12,16 @@ import { SCENES } from './today';
 // Zoom-through: outgoing scene rushes past the camera, incoming one settles from behind.
 const ZoomComp: React.FC<TransitionPresentationComponentProps<Record<string, never>>> = ({ children, presentationDirection, presentationProgress: p }) => (
   <AbsoluteFill style={presentationDirection === 'exiting'
-    ? { scale: String(1 + p * 3), opacity: 1 - p, filter: `blur(${p * 24}px)` }
-    : { scale: String(0.7 + 0.3 * p), opacity: Math.min(1, p * 1.6) }}>{children}</AbsoluteFill>
+    ? { scale: String(1 + p * 0.12), opacity: 1 - p, filter: `blur(${p * 8}px)` }
+    : { scale: String(0.94 + 0.06 * p), opacity: Math.min(1, p * 1.4) }}>{children}</AbsoluteFill>
 );
 const zoomThrough = (): TransitionPresentation<Record<string, never>> => ({ component: ZoomComp, props: {} });
 
 // Whip pan: both scenes slide sideways with a horizontal smear.
 const WhipComp: React.FC<TransitionPresentationComponentProps<Record<string, never>>> = ({ children, presentationDirection, presentationProgress: p }) => {
-  const blur = Math.sin(p * Math.PI) * 40;
-  const x = presentationDirection === 'exiting' ? -p * 1080 : (1 - p) * 1080;
-  return <AbsoluteFill style={{ translate: `${x}px 0`, filter: `blur(${blur}px)` }}>{children}</AbsoluteFill>;
+  const blur = Math.sin(p * Math.PI) * 6;
+  const x = presentationDirection === 'exiting' ? -p * 260 : (1 - p) * 260;
+  return <AbsoluteFill style={{ translate: `${x}px 0`, filter: `blur(${blur}px)`, opacity: presentationDirection === 'exiting' ? 1 - p : Math.min(1, p * 1.4) }}>{children}</AbsoluteFill>;
 };
 const whip = (): TransitionPresentation<Record<string, never>> => ({ component: WhipComp, props: {} });
 

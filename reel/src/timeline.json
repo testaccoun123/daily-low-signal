@@ -2,7 +2,7 @@
  "fps": 30,
  "voice": "bm_george",
  "speed": 1.25,
- "total": 727,
+ "total": 738,
  "themes": [
   "hook",
   "pink",
@@ -12,392 +12,377 @@
  ],
  "scenes": [
   {
-   "text": "Here are four things you missed today.",
+   "text": "Four things blew up while you scrolled.",
    "from": 0,
-   "dur": 61,
+   "dur": 58,
    "words": [
     {
-     "w": "Here",
+     "w": "Four",
      "s": 1,
-     "e": 9
-    },
-    {
-     "w": "are",
-     "s": 10,
-     "e": 12
-    },
-    {
-     "w": "four",
-     "s": 15,
-     "e": 20
+     "e": 7
     },
     {
      "w": "things",
-     "s": 22,
-     "e": 32
+     "s": 8,
+     "e": 17
+    },
+    {
+     "w": "blew",
+     "s": 19,
+     "e": 23
+    },
+    {
+     "w": "up",
+     "s": 24,
+     "e": 30
+    },
+    {
+     "w": "while",
+     "s": 31,
+     "e": 34
     },
     {
      "w": "you",
-     "s": 33,
-     "e": 35
+     "s": 35,
+     "e": 37
     },
     {
-     "w": "missed",
-     "s": 37,
-     "e": 44
-    },
-    {
-     "w": "today.",
-     "s": 45,
-     "e": 65
+     "w": "scrolled.",
+     "s": 39,
+     "e": 61
     }
    ]
   },
   {
-   "text": "GTA 6 is just nine days away. Rockstar says November nineteenth is still locked in.",
-   "from": 61,
-   "dur": 174,
+   "text": "Claude's maker Anthropic just had the biggest IPO ever. Shares opened thirty-four percent higher.",
+   "from": 58,
+   "dur": 173,
    "words": [
     {
-     "w": "GTA",
-     "s": 62,
-     "e": 77
+     "w": "Claude's",
+     "s": 59,
+     "e": 68
     },
     {
-     "w": "6",
+     "w": "maker",
+     "s": 69,
+     "e": 78
+    },
+    {
+     "w": "Anthropic",
      "s": 80,
-     "e": 94
-    },
-    {
-     "w": "is",
-     "s": 96,
-     "e": 99
+     "e": 102
     },
     {
      "w": "just",
-     "s": 100,
-     "e": 107
+     "s": 105,
+     "e": 112
     },
     {
-     "w": "nine",
-     "s": 109,
-     "e": 117
+     "w": "had",
+     "s": 113,
+     "e": 116
     },
     {
-     "w": "days",
-     "s": 118,
-     "e": 125
+     "w": "the",
+     "s": 117,
+     "e": 119
     },
     {
-     "w": "away.",
-     "s": 126,
-     "e": 145
+     "w": "biggest",
+     "s": 121,
+     "e": 131
     },
     {
-     "w": "Rockstar",
-     "s": 142,
-     "e": 153
+     "w": "IPO",
+     "s": 133,
+     "e": 149
     },
     {
-     "w": "says",
-     "s": 155,
-     "e": 164
+     "w": "ever.",
+     "s": 150,
+     "e": 165
     },
     {
-     "w": "November",
-     "s": 167,
-     "e": 179
+     "w": "Shares",
+     "s": 163,
+     "e": 173
     },
     {
-     "w": "nineteenth",
-     "s": 180,
-     "e": 201
+     "w": "opened",
+     "s": 174,
+     "e": 188
     },
     {
-     "w": "is",
-     "s": 203,
-     "e": 205
+     "w": "thirty-four",
+     "s": 191,
+     "e": 206
     },
     {
-     "w": "still",
+     "w": "percent",
      "s": 207,
-     "e": 214
+     "e": 216
     },
     {
-     "w": "locked",
-     "s": 215,
-     "e": 223
-    },
-    {
-     "w": "in.",
-     "s": 224,
-     "e": 239
+     "w": "higher.",
+     "s": 217,
+     "e": 234
     }
    ]
   },
   {
-   "text": "Google is switching off AI for students. And schools that say no will lose Google Search too.",
-   "from": 235,
-   "dur": 160,
-   "words": [
-    {
-     "w": "Google",
-     "s": 236,
-     "e": 247
-    },
-    {
-     "w": "is",
-     "s": 248,
-     "e": 251
-    },
-    {
-     "w": "switching",
-     "s": 252,
-     "e": 261
-    },
-    {
-     "w": "off",
-     "s": 263,
-     "e": 270
-    },
-    {
-     "w": "AI",
-     "s": 272,
-     "e": 286
-    },
-    {
-     "w": "for",
-     "s": 287,
-     "e": 289
-    },
-    {
-     "w": "students.",
-     "s": 291,
-     "e": 313
-    },
-    {
-     "w": "And",
-     "s": 310,
-     "e": 312
-    },
-    {
-     "w": "schools",
-     "s": 313,
-     "e": 324
-    },
-    {
-     "w": "that",
-     "s": 325,
-     "e": 328
-    },
-    {
-     "w": "say",
-     "s": 330,
-     "e": 335
-    },
-    {
-     "w": "no",
-     "s": 337,
-     "e": 348
-    },
-    {
-     "w": "will",
-     "s": 350,
-     "e": 353
-    },
-    {
-     "w": "lose",
-     "s": 354,
-     "e": 360
-    },
-    {
-     "w": "Google",
-     "s": 362,
-     "e": 370
-    },
-    {
-     "w": "Search",
-     "s": 372,
-     "e": 380
-    },
-    {
-     "w": "too.",
-     "s": 383,
-     "e": 399
-    }
-   ]
-  },
-  {
-   "text": "A robot just built something in space, completely on its own. No astronauts needed.",
-   "from": 395,
+   "text": "Valve closed the waitlist for its two-terabyte Steam Machine. Memory costs are soaring.",
+   "from": 231,
    "dur": 148,
    "words": [
     {
-     "w": "A",
-     "s": 396,
+     "w": "Valve",
+     "s": 232,
+     "e": 240
+    },
+    {
+     "w": "closed",
+     "s": 242,
+     "e": 251
+    },
+    {
+     "w": "the",
+     "s": 252,
+     "e": 254
+    },
+    {
+     "w": "waitlist",
+     "s": 255,
+     "e": 273
+    },
+    {
+     "w": "for",
+     "s": 275,
+     "e": 277
+    },
+    {
+     "w": "its",
+     "s": 278,
+     "e": 282
+    },
+    {
+     "w": "two-terabyte",
+     "s": 284,
+     "e": 301
+    },
+    {
+     "w": "Steam",
+     "s": 303,
+     "e": 310
+    },
+    {
+     "w": "Machine.",
+     "s": 311,
+     "e": 332
+    },
+    {
+     "w": "Memory",
+     "s": 329,
+     "e": 339
+    },
+    {
+     "w": "costs",
+     "s": 341,
+     "e": 355
+    },
+    {
+     "w": "are",
+     "s": 358,
+     "e": 360
+    },
+    {
+     "w": "soaring.",
+     "s": 362,
+     "e": 382
+    }
+   ]
+  },
+  {
+   "text": "You can now edit Instagram Stories after posting. You get fifteen minutes, and keep your views.",
+   "from": 379,
+   "dur": 169,
+   "words": [
+    {
+     "w": "You",
+     "s": 380,
+     "e": 382
+    },
+    {
+     "w": "can",
+     "s": 384,
+     "e": 388
+    },
+    {
+     "w": "now",
+     "s": 389,
      "e": 398
     },
     {
-     "w": "robot",
-     "s": 399,
-     "e": 411
+     "w": "edit",
+     "s": 400,
+     "e": 410
     },
     {
-     "w": "just",
+     "w": "Instagram",
      "s": 412,
-     "e": 419
+     "e": 429
     },
     {
-     "w": "built",
-     "s": 420,
-     "e": 425
+     "w": "Stories",
+     "s": 430,
+     "e": 447
     },
     {
-     "w": "something",
-     "s": 427,
-     "e": 435
+     "w": "after",
+     "s": 449,
+     "e": 455
     },
     {
-     "w": "in",
-     "s": 437,
-     "e": 439
+     "w": "posting.",
+     "s": 457,
+     "e": 479
     },
     {
-     "w": "space,",
-     "s": 441,
-     "e": 457
-    },
-    {
-     "w": "completely",
-     "s": 461,
-     "e": 475
-    },
-    {
-     "w": "on",
+     "w": "You",
      "s": 476,
      "e": 478
     },
     {
-     "w": "its",
+     "w": "get",
      "s": 479,
-     "e": 483
+     "e": 484
     },
     {
-     "w": "own.",
-     "s": 484,
-     "e": 501
+     "w": "fifteen",
+     "s": 486,
+     "e": 496
     },
     {
-     "w": "No",
-     "s": 498,
-     "e": 506
+     "w": "minutes,",
+     "s": 497,
+     "e": 511
     },
     {
-     "w": "astronauts",
-     "s": 508,
+     "w": "and",
+     "s": 515,
+     "e": 517
+    },
+    {
+     "w": "keep",
+     "s": 519,
      "e": 525
     },
     {
-     "w": "needed.",
-     "s": 527,
-     "e": 546
+     "w": "your",
+     "s": 526,
+     "e": 530
+    },
+    {
+     "w": "views.",
+     "s": 531,
+     "e": 551
     }
    ]
   },
   {
-   "text": "And Hubble is slowly falling. Without a rescue, it could come crashing back to Earth within seven years.",
-   "from": 543,
-   "dur": 184,
+   "text": "And Google booked a Blue Origin rocket to fly its AI computers to space, in early twenty twenty-nine.",
+   "from": 548,
+   "dur": 190,
    "words": [
     {
      "w": "And",
-     "s": 544,
-     "e": 547
+     "s": 549,
+     "e": 552
     },
     {
-     "w": "Hubble",
-     "s": 548,
-     "e": 561
+     "w": "Google",
+     "s": 553,
+     "e": 562
     },
     {
-     "w": "is",
-     "s": 564,
-     "e": 566
-    },
-    {
-     "w": "slowly",
-     "s": 569,
-     "e": 581
-    },
-    {
-     "w": "falling.",
-     "s": 583,
-     "e": 604
-    },
-    {
-     "w": "Without",
-     "s": 600,
-     "e": 608
+     "w": "booked",
+     "s": 563,
+     "e": 570
     },
     {
      "w": "a",
-     "s": 609,
-     "e": 610
+     "s": 571,
+     "e": 572
     },
     {
-     "w": "rescue,",
-     "s": 611,
-     "e": 630
+     "w": "Blue",
+     "s": 574,
+     "e": 580
     },
     {
-     "w": "it",
-     "s": 633,
-     "e": 635
+     "w": "Origin",
+     "s": 582,
+     "e": 592
     },
     {
-     "w": "could",
-     "s": 636,
-     "e": 640
-    },
-    {
-     "w": "come",
-     "s": 641,
-     "e": 646
-    },
-    {
-     "w": "crashing",
-     "s": 648,
-     "e": 658
-    },
-    {
-     "w": "back",
-     "s": 659,
-     "e": 665
+     "w": "rocket",
+     "s": 593,
+     "e": 609
     },
     {
      "w": "to",
-     "s": 666,
-     "e": 668
+     "s": 611,
+     "e": 613
     },
     {
-     "w": "Earth",
-     "s": 670,
-     "e": 680
+     "w": "fly",
+     "s": 615,
+     "e": 623
     },
     {
-     "w": "within",
-     "s": 682,
-     "e": 689
+     "w": "its",
+     "s": 624,
+     "e": 628
     },
     {
-     "w": "seven",
-     "s": 691,
-     "e": 699
+     "w": "AI",
+     "s": 630,
+     "e": 641
     },
     {
-     "w": "years.",
-     "s": 700,
-     "e": 720
+     "w": "computers",
+     "s": 642,
+     "e": 656
+    },
+    {
+     "w": "to",
+     "s": 658,
+     "e": 660
+    },
+    {
+     "w": "space,",
+     "s": 662,
+     "e": 681
+    },
+    {
+     "w": "in",
+     "s": 685,
+     "e": 687
+    },
+    {
+     "w": "early",
+     "s": 689,
+     "e": 696
+    },
+    {
+     "w": "twenty",
+     "s": 697,
+     "e": 704
+    },
+    {
+     "w": "twenty-nine.",
+     "s": 706,
+     "e": 732
     }
    ]
   }

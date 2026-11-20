@@ -33,7 +33,7 @@ export const Captions: React.FC = () => {
   if (f > c.e + 12 && (!next || f < next.s - 2)) return null; // pause between lines: clear
   const theme = THEMES[SCENE_THEMES[c.scene]];
   const accent = c.scene === 0 ? '#ffd23d' : theme.a;
-  const pop = spring({ frame: f - (c.s - 2), fps, config: { damping: 13, stiffness: 220 } });
+  const pop = spring({ frame: f - (c.s - 2), fps, config: { damping: 22, stiffness: 140 } });
   let active = 0;
   c.words.forEach((w, k) => { if (f >= w.s) active = k; });
   return (
@@ -43,15 +43,15 @@ export const Captions: React.FC = () => {
           position: 'absolute', left: 50, right: 50, top: 1200, height: 260,
           display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center', gap: '0 36px',
           fontFamily: INTER, fontWeight: 900, fontSize: 96, lineHeight: 1.08, textTransform: 'uppercase',
-          scale: String(interpolate(pop, [0, 1], [0.7, 1])),
-          translate: `0 ${interpolate(pop, [0, 1], [40, 0])}px`,
+          scale: String(interpolate(pop, [0, 1], [0.94, 1])),
+          translate: `0 ${interpolate(pop, [0, 1], [18, 0])}px`,
           opacity: interpolate(pop, [0, 0.4], [0, 1], clamp),
         }}
       >
         {c.words.map((w, k) => {
           const on = k === active && f >= w.s;
           const said = f >= w.s;
-          const wp = spring({ frame: f - w.s, fps, config: { damping: 10, stiffness: 300 } });
+          const wp = spring({ frame: f - w.s, fps, config: { damping: 20, stiffness: 160 } });
           return (
             <span
               key={k}
@@ -59,8 +59,8 @@ export const Captions: React.FC = () => {
                 display: 'inline-block',
                 color: on ? accent : '#ffffff',
                 opacity: said ? 1 : 0.42,
-                scale: String(on ? interpolate(wp, [0, 1], [1.25, 1.08]) : 1),
-                rotate: on ? `${interpolate(wp, [0, 1], [-6, -2])}deg` : '0deg',
+                scale: String(on ? interpolate(wp, [0, 1], [1.0, 1.05]) : 1),
+                rotate: '0deg',
                 WebkitTextStroke: '14px #000',
                 paintOrder: 'stroke fill',
                 textShadow: on ? `0 0 40px ${accent}99, 0 8px 0 #000` : '0 8px 0 #000',

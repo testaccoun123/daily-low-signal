@@ -13,7 +13,12 @@ const kit = require('./kit');
 const { N, SR, LEN, hits, beds, send } = kit;
 
 // ---- today's cues ----
-require('../src/today/cues.js')(kit);
+// CUES=<path> selects another format's cues (e.g. src/fact/today/cues.js); default = today's news reel.
+// SFX_STYLE=cosy: soft, tuned replacements for the hard sounds + a quiet warm pad bed under everything.
+const COSY = (process.env.SFX_STYLE || 'cosy') === 'cosy'; // default since 2026-11-20; SFX_STYLE=classic = old hard sounds
+const cueKit = COSY ? require('./cosy')(kit) : kit;
+if (COSY && !process.env.CUES) require('./cosy').bed(kit);
+require(process.env.CUES ? path.resolve(process.env.CUES) : '../src/today/cues.js')(cueKit);
 
 // ---- mix ----
 const wet = reverb(send, { room: 0.82, damp: 0.3, predelay: 0.015, hp: 250, lp: 7000 });
@@ -29,7 +34,7 @@ MIX.highpass(mix, 28);
 MIX.fadeOut(mix, LEN - 0.6, LEN);
 
 // Loudness: effects sit ~SFX_UNDER LU under the voice (approved balance used a fixed make-up gain of 0.209).
-const voL = MIX.lufs(vo), UNDER = Number(process.env.SFX_UNDER || 9);
+const voL = MIX.lufs(vo), UNDER = Number(process.env.SFX_UNDER || 11);
 const fxL = MIX.lufs(mix);
 const g0 = process.env.SFX_GAIN ? Number(process.env.SFX_GAIN) : Math.min(0.5, Math.pow(10, (voL - UNDER - fxL) / 20));
 console.log(`make-up gain ${g0.toFixed(3)}`);

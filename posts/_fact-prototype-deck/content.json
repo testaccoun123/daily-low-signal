@@ -1,0 +1,47 @@
+{
+  "format": "fact",
+  "date": "PROTOTYPE",
+  "title": "Your shuffle is brand new",
+  "hook": {
+    "onscreen": "Has this exact shuffle ever happened before?",
+    "voiceover": "Properly shuffle a deck of cards, and you've almost certainly made history."
+  },
+  "stories": [
+    {
+      "theme": "violet",
+      "beat": "build",
+      "voiceover": "The first card can be any of fifty-two. The next, any of fifty-one. Then fifty. All the way down to one."
+    },
+    {
+      "theme": "violet",
+      "beat": "number",
+      "voiceover": "Multiply all of that, and you get roughly an eight with sixty-seven zeros behind it."
+    },
+    {
+      "theme": "violet",
+      "beat": "twist",
+      "voiceover": "Now picture every person on Earth shuffling a deck every second, since the Big Bang."
+    },
+    {
+      "theme": "violet",
+      "beat": "payoff",
+      "voiceover": "They still wouldn't make a dent. So the order in your hands has almost certainly never existed before."
+    }
+  ],
+  "math": {
+    "orderings": "52! = 80658175170943878571660636856403766975289505440883277824000000000000 (68 digits, 8.0658e67)",
+    "shuffles_since_big_bang": "8.2e9 people x 13.8e9 years x 31,557,600 s = 3.57e27",
+    "fraction_covered": "3.57e27 / 8.07e67 = 4.4e-41",
+    "chance_any_two_match": "n^2 / (2 x 52!) = 7.9e-14"
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Shuffling",
+    "https://czep.net/weblog/52cards.html",
+    "https://math.hmc.edu/funfacts/?p=226",
+    "https://www.mentalfloss.com/article/92408/how-many-ways-can-you-sort-deck-cards",
+    "https://science.nasa.gov/universe/overview/",
+    "https://www.esa.int/Science_Exploration/Space_Science/Planck/Planck_reveals_an_almost_perfect_Universe",
+    "https://www.un.org/en/global-issues/population",
+    "https://www.worldometers.info/world-population/"
+  ]
+}
