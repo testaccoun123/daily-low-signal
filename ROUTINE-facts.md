@@ -146,8 +146,9 @@ If anything fails: do NOT publish. Send a push notification (in Swedish) explain
 ```bash
 node carousel/publish-reel.js posts/fact-YYYY-MM-DD
 ```
-Then, **only if `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN` are set**, also
-`node carousel/publish-youtube.js posts/fact-YYYY-MM-DD` (a YouTube failure must not block anything —
-just mention it). Send a push notification (in Swedish) with the permalink, the fact in one line, and
+This also uploads the reel as a YouTube Short by itself and archives `youtube.json` — do not run
+`publish-youtube.js` separately. The last output line is `YOUTUBE OK <link>`, `YOUTUBE FAILED: <reason>` or
+`YOUTUBE SKIPPED: <reason>`; a YouTube failure does not undo the Instagram post.
+Send a push notification (in Swedish) with the permalink, the YouTube result (link, or why it failed/was skipped), the fact in one line, and
 one short line on how the best recent fact reel performed. End your reply with the same summary plus the
 source links. Do not git push.
