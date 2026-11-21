@@ -190,13 +190,10 @@ If anything fails: do NOT publish. Send a push notification (in Swedish) explain
 node carousel/publish-reel.js posts/YYYY-MM-DD
 ```
 (uploads the video directly to Instagram, waits for processing, publishes, archives content.json,
-caption and cover to the repo). Then, **only if the env vars `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and
-`YT_REFRESH_TOKEN` are set**, also post it as a YouTube Short:
-```bash
-node carousel/publish-youtube.js posts/YYYY-MM-DD
-```
-A YouTube failure must not undo or block the Instagram post — just mention it in the notification.
-Then send a push notification (in Swedish) with the permalink (and the YouTube link if uploaded), the 4
+caption and cover to the repo), then uploads it as a YouTube Short by itself and archives `youtube.json`.
+Do not run `publish-youtube.js` separately. Read the last line of the output: `YOUTUBE OK <link>`,
+`YOUTUBE FAILED: <reason>` or `YOUTUBE SKIPPED: <reason>` — a YouTube failure does not undo the Instagram post.
+Then send a push notification (in Swedish) with the permalink, the YouTube result (link, or why it failed/was skipped), the 4
 stories in one line each, and one short line on how the best recent post performed (from step 1).
 End your reply with the same summary plus the source links. Do not git push.
 
