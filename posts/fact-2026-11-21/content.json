@@ -1,0 +1,50 @@
+{
+  "format": "fact",
+  "date": "NOV 21, 2026",
+  "title": "Cleopatra is closer to the Moon landing than to the pyramids",
+  "hook": {
+    "onscreen": "Was Cleopatra closer to the pyramids or the Moon landing?",
+    "voiceover": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyramid."
+  },
+  "stories": [
+    {
+      "theme": "amber",
+      "beat": "build",
+      "voiceover": "The Great Pyramid of Giza went up around twenty-six hundred B.C. Cleopatra died in thirty B.C."
+    },
+    {
+      "theme": "amber",
+      "beat": "number",
+      "voiceover": "That's a gap of about two and a half thousand years."
+    },
+    {
+      "theme": "amber",
+      "beat": "twist",
+      "voiceover": "Now jump forward from her death to the Moon landing, in nineteen sixty-nine. Only about two thousand years."
+    },
+    {
+      "theme": "amber",
+      "beat": "payoff",
+      "voiceover": "So to Cleopatra, the pyramid was more ancient than she is to you today."
+    }
+  ],
+  "math": {
+    "year_convention": "BC years converted to astronomical numbering (1 BC = year 0) so gaps are exact: astro(y) = y + 1 for BC years given as negative numbers",
+    "pyramid_to_cleopatra": "Great Pyramid c. 2600 BC (astro -2599) -> Cleopatra's death 30 BC (astro -29): -29 - (-2599) = 2570 years (said: about two and a half thousand)",
+    "pyramid_range_check": "With published estimates of completion from 2700 BC to 2484 BC the gap is 2670 to 2454 years; always > 1998 and > 2055, so the claim holds for every estimate",
+    "cleopatra_to_moon": "30 BC (astro -29) -> 20 July 1969: 1969 - (-29) = 1998 years (said: about two thousand)",
+    "cleopatra_to_today": "30 BC -> 2026: 2026 - (-29) = 2055 years, which is less than 2570 (and less than the 2454 minimum), so the pyramid was older to her than she is to us",
+    "difference": "2570 - 1998 = 572 years closer to the Moon landing; ratio 2570 / 1998 = 1.29",
+    "pyramid_sources": "Wikipedia: built c. 2600 BC over ~26 years; National Geographic: Khufu began it circa 2550 BC (~4,500 years ago). Gap to 30 BC: 2570 (2600 BC) or 2520 (2550 BC) -> 'about two and a half thousand years'",
+    "cleopatra_death": "30 BC (Wikipedia: 10 or 12 August 30 BC; History.com: August 12, 30 B.C.)",
+    "moon_landing": "20 July 1969 (NASA Apollo 11 page; Smithsonian NASM)"
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza",
+    "https://www.nationalgeographic.com/history/article/giza-pyramids",
+    "https://en.wikipedia.org/wiki/Cleopatra",
+    "https://www.history.com/topics/ancient-egypt/cleopatra",
+    "https://www.nasa.gov/mission/apollo-11/",
+    "https://airandspace.si.edu/explore/stories/apollo-11-moon-landing"
+  ]
+}
