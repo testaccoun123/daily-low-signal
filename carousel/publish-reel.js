@@ -6,6 +6,9 @@
 //   node carousel/publish-reel.js posts/YYYY-MM-DD --stage     uploads + waits for processing, but does NOT publish
 //   node carousel/publish-reel.js posts/YYYY-MM-DD             uploads and publishes
 // Reads IG_ACCESS_TOKEN, IG_USER_ID, IG_API_BASE (+ GITHUB_TOKEN, GITHUB_REPO for the archive) from .env or env vars.
+// After publishing on Instagram it also uploads the reel as a YouTube Short (publish-youtube.js) and archives
+// youtube.json — the link, the error, or "skipped" when the YT_* credentials are missing. A YouTube failure
+// never fails this script (Instagram is already live); look for the "YOUTUBE ..." line in the output.
 
 const fs = require('fs');
 const path = require('path');
@@ -18,10 +21,34 @@ function loadEnv() {
     const m = line.match(/^\s*([A-Z_]+)=(.*)$/);
     if (m && m[2].trim()) env[m[1]] = m[2].trim();
   }
-  for (const k of ['IG_ACCESS_TOKEN', 'IG_USER_ID', 'IG_API_BASE', 'GITHUB_TOKEN', 'GITHUB_REPO']) if (process.env[k]) env[k] = process.env[k];
+  for (const k of ['IG_ACCESS_TOKEN', 'IG_USER_ID', 'IG_API_BASE', 'GITHUB_TOKEN', 'GITHUB_REPO', 'YT_CLIENT_ID', 'YT_CLIENT_SECRET', 'YT_REFRESH_TOKEN']) if (process.env[k]) env[k] = process.env[k];
   for (const k of ['IG_ACCESS_TOKEN', 'IG_USER_ID']) if (!env[k]) throw new Error(`${k} missing`);
   env.IG_API_BASE = env.IG_API_BASE || 'https://graph.facebook.com/v23.0';
   return env;
+}
+
+const YT_KEYS = ['YT_CLIENT_ID', 'YT_CLIENT_SECRET', 'YT_REFRESH_TOKEN'];
+
+// Runs publish-youtube.js for the post folder. Never throws: returns a one-line status for the output.
+function youtube(env, dir, dryRun) {
+  const missing = YT_KEYS.filter((k) => !env[k]);
+  if (missing.length) {
+    if (!dryRun) fs.writeFileSync(path.join(dir, 'youtube.json'), JSON.stringify({ skipped: `missing ${missing.join(', ')}`, at: new Date().toISOString() }, null, 2));
+    return `YOUTUBE SKIPPED: missing ${missing.join(', ')}`;
+  }
+  const r = spawnSync(process.execPath, [path.join(__dirname, 'publish-youtube.js'), dir, ...(dryRun ? ['--dry-run'] : [])], {
+    encoding: 'utf8', timeout: 15 * 60 * 1000, env: { ...process.env, ...Object.fromEntries(YT_KEYS.map((k) => [k, env[k]])) },
+  });
+  const out = `${r.stdout || ''}${r.stderr || ''}`.trim();
+  if (out) console.log(out.split('\n').map((l) => `  [youtube] ${l}`).join('\n'));
+  if (r.status === 0) {
+    const rec = path.join(dir, 'youtube.json');
+    const y = !dryRun && fs.existsSync(rec) ? JSON.parse(fs.readFileSync(rec, 'utf8')) : {};
+    return dryRun ? 'YOUTUBE DRY RUN OK' : `YOUTUBE OK ${y.link} (privacy: ${y.privacy})`;
+  }
+  const reason = r.error ? r.error.message : (out.match(/ERROR: (.*)/) || [])[1] || `exit ${r.status}`;
+  if (!dryRun && !fs.existsSync(path.join(dir, 'youtube.json'))) fs.writeFileSync(path.join(dir, 'youtube.json'), JSON.stringify({ error: reason, at: new Date().toISOString() }, null, 2));
+  return `YOUTUBE FAILED: ${reason}`;
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -88,7 +115,7 @@ async function archiveToRepo(env, dir, names) {
 
   const quota = await api(env, 'GET', `${env.IG_USER_ID}/content_publishing_limit`, { fields: 'quota_usage,config' });
   console.log('publishing quota:', JSON.stringify(quota.data[0]));
-  if (dryRun) { console.log('DRY RUN: nothing uploaded or published'); return; }
+  if (dryRun) { console.log(youtube(env, dir, true)); console.log('DRY RUN: nothing uploaded or published'); return; }
 
   // 1) container with resumable upload  2) upload the bytes  3) wait for processing  4) publish
   const container = await api(env, 'POST', `${env.IG_USER_ID}/media`, {
@@ -119,4 +146,8 @@ async function archiveToRepo(env, dir, names) {
   console.log('PUBLISHED', mediaId, permalink);
   fs.writeFileSync(path.join(dir, 'published.json'), JSON.stringify({ mediaId, permalink, type: 'REELS', at: new Date().toISOString() }, null, 2));
   await archiveToRepo(env, dir, ['content.json', 'caption.txt', 'published.json', 'cover.jpg']).catch((e) => console.log('archive failed:', e.message));
+  // YouTube after the Instagram archive, so a YouTube problem can never cause an Instagram re-post.
+  const yt = youtube(env, dir, false);
+  await archiveToRepo(env, dir, ['youtube.json']).catch((e) => console.log('archive failed:', e.message));
+  console.log(yt);
 })().catch((e) => { console.error('ERROR:', e.message); process.exit(1); });
