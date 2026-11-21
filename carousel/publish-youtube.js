@@ -1,6 +1,9 @@
 // Uploads a post's reel.mp4 to YouTube as a Short.
-// Usage: node carousel/publish-youtube.js posts/YYYY-MM-DD [--dry-run] [--privacy public|unlisted|private]
+// Usage: node carousel/publish-youtube.js posts/YYYY-MM-DD [--dry-run] [--privacy public|unlisted|private] [--force]
 // Needs YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN (from .env or env vars).
+// Normally run automatically by publish-reel.js after the Instagram post.
+// Writes youtube.json in the post folder: { id, link, ... } on success, { error, ... } on failure.
+// Skips the upload if youtube.json already has an id (so a reel is never uploaded twice) unless --force.
 // Used for every reel: news reels (category News) and xQc clips (category Gaming; the account owner
 // has written permission from xQc for all platforms).
 // Note: until the Google Cloud project passes YouTube's API compliance audit, YouTube forces
@@ -29,6 +32,16 @@ function loadEnv() {
   }
   const dir = args[0];
   const dryRun = args.includes('--dry-run');
+  const record = dir && path.join(dir, 'youtube.json');
+  const prev = record && fs.existsSync(record) ? JSON.parse(fs.readFileSync(record, 'utf8')) : null;
+  if (prev && prev.id && !args.includes('--force')) { console.log(`ALREADY UPLOADED ${prev.link} — skipping (use --force to upload again)`); return; }
+  try { await upload(args, dir, dryRun); } catch (e) {
+    if (!dryRun && dir && fs.existsSync(dir)) fs.writeFileSync(record, JSON.stringify({ error: e.message, at: new Date().toISOString() }, null, 2));
+    throw e;
+  }
+})().catch((e) => { console.error('ERROR:', e.message); process.exit(1); });
+
+async function upload(args, dir, dryRun) {
   const pi = args.indexOf('--privacy');
   const privacy = pi >= 0 ? args[pi + 1] : 'public';
   if (!dir) throw new Error('Usage: node carousel/publish-youtube.js <post-dir> [--dry-run] [--privacy public|unlisted|private]');
@@ -65,4 +78,4 @@ function loadEnv() {
   const link = `https://youtube.com/shorts/${v.id}`;
   fs.writeFileSync(path.join(dir, 'youtube.json'), JSON.stringify({ id: v.id, link, privacy: v.status && v.status.privacyStatus, at: new Date().toISOString() }, null, 2));
   console.log(`UPLOADED ${link} (privacy: ${v.status && v.status.privacyStatus})`);
-})().catch((e) => { console.error('ERROR:', e.message); process.exit(1); });
+}
