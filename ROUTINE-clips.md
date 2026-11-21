@@ -65,12 +65,10 @@ dry run OK. Then:
 ```bash
 node carousel/publish-reel.js posts/clip-YYYY-MM-DD-<slug>
 ```
-(uploads, publishes, archives the folder record to the repo so it is never posted again).
-Then, **only if `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN` are set**, also post it as a
-YouTube Short (the permission from xQc covers all platforms):
-```bash
-node carousel/publish-youtube.js posts/clip-YYYY-MM-DD-<slug>
-```
-A YouTube failure must not block the Instagram post — mention it in the notification (add the YouTube link if uploaded).
-Send a push notification in Swedish: "Nytt xQc-klipp publicerat: <permalink> — <clip title>".
+(uploads, publishes, archives the folder record to the repo so it is never posted again, then uploads it
+as a YouTube Short by itself — the permission from xQc covers all platforms — and archives `youtube.json`).
+Do not run `publish-youtube.js` separately. The last output line is `YOUTUBE OK <link>`, `YOUTUBE FAILED: <reason>`
+or `YOUTUBE SKIPPED: <reason>`; a YouTube failure does not undo the Instagram post.
+Send a push notification in Swedish: "Nytt xQc-klipp publicerat: <permalink> — <clip title>", plus the YouTube
+link, or one line on why YouTube failed/was skipped.
 If something failed, do not publish; send a short Swedish push notification saying why. Do not git push.
