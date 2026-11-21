@@ -1,0 +1,60 @@
+{
+  "date": "NOV 21, 2026",
+  "hook": {
+    "voiceover": "Four stories, zero noise."
+  },
+  "stories": [
+    {
+      "theme": "pink",
+      "topic": "gaming",
+      "tag": "GAMING",
+      "headline": "GTA 6 made $3.79 billion on day one",
+      "voiceover": "GTA 6 made nearly three point eight billion dollars on day one. The biggest entertainment launch ever.",
+      "concept": "a cash register counter rolls up to $3.79B, coins stack into a tower that rises past a trophy shelf labelled MOVIES / MUSIC / GAMES, a crown settles on top",
+      "source": "Take-Two Interactive press release (Nov 20: $3.79B day-one retail sales through end of Nov 19, 32.5M units pre-release, biggest entertainment launch in history), TweakTown, Wccftech",
+      "photo": {
+        "file": "photo-1.png",
+        "credit": "Photo: Take-Two Interativa de / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Rockstar_Games_Logo.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    },
+    {
+      "theme": "teal",
+      "topic": "money",
+      "tag": "MONEY",
+      "headline": "The Nasdaq fell 5.3% on Friday",
+      "voiceover": "On Friday, the Nasdaq dropped five point three percent. That wiped out all its gains this year.",
+      "concept": "a chart line drifts down a long slide like a leaf, the 2026 gains bar drains like sand in an hourglass to zero",
+      "source": "NBC News (Nasdaq -5.3%, erased 2026 gains, S&P -3.7%), Yahoo Finance (Nasdaq 22,617.73 -5.28%), QNC News; CNBC on AI selloff context"
+    },
+    {
+      "theme": "violet",
+      "topic": "apps-social",
+      "tag": "APPS",
+      "headline": "Canva added an off switch for AI",
+      "voiceover": "Canva just added an off switch for AI. Flip it, and its generative AI tools vanish.",
+      "concept": "a giant toggle labelled 'Enable generative AI features' slides off, sparkly AI buttons float away like bubbles and pop softly, a calm clean canvas remains",
+      "source": "9to5Mac (Nov 19), Engadget (Nov 19): toggle under Profile > Settings > Permissions, Free and Pro, Background Remover and Magic Grab stay"
+    },
+    {
+      "theme": "amber",
+      "topic": "ai-tech",
+      "tag": "AI",
+      "headline": "Gemini can now use your Mac for you",
+      "voiceover": "And Google's Gemini can now use your Mac for you, clicking, typing and filling in forms.",
+      "concept": "a Mac window where a glowing cursor moves by itself, clicks a button, types text letter by letter, ticks form boxes, a 'Done' check blooms",
+      "source": "Android Authority (Nov 19), Talk Android (Nov 20) citing Google Keyword blog: computer use in Gemini for Mac, AI Plus/Pro/Ultra, US English, Apple Silicon",
+      "photo": {
+        "file": "photo-4.png",
+        "credit": "Photo: Google / Public domain / Wikimedia Commons",
+        "source": "https://commons.wikimedia.org/wiki/File:Google_Gemini_logo.svg",
+        "license": "Public domain",
+        "contain": true,
+        "portrait": false
+      }
+    }
+  ]
+}
